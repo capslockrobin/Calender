@@ -18,10 +18,10 @@
     </style>
 </head>
 
-<body style="height: 100vh; background-color: cyan;">
+<body style="background-color: cyan;">
 
-    <header>
-        <div class="flex" style="background-color: green;">
+    <header style="height: 11vh;">
+        <div style="background-color: green;">
             <div class="row no-gutters justify-content-center">
                 <h1>Kalender</h1>
             </div>
@@ -42,10 +42,10 @@
         </div>
     </header>
 
-    <main class="row no-gutters">
+    <main class="row no-gutters" style="min-height: 89vh; max-height: 89vh;">
         <aside class="col-3" style="background-color: cyan;">
             <div class="row no-gutters justify-content-around align-items-center">
-                <img src="https://www.pngrepo.com/png/29731/180/sunny.png" style="width: 30%;" alt="">
+                <img src="https://www.pngrepo.com/png/29731/180/sunny.png" style="width: 30%" alt="" />
                 <h5 id="todaysDate"></h5>
             </div>
             <div class="row no-gutters">
@@ -54,62 +54,105 @@
                     <h5 id="clock"></h5>
                 </div>
             </div>
-            <div class="card row no-gutters align-items-center mt-2">
-                <div class="col-1 mr-1">
-                    <img class="img-fluid" src="https://www.pngrepo.com/png/29731/180/sunny.png " alt="Card image cap " />
-                </div>
-                <div class="card-body col-9">
-                    <p style="display: inline; " class="card-title ">Schema för arbete/skola</p>
-                </div>
-                <div class="card row no-gutters align-items-center" style="background-color: brown; width: 100%">
-                    <div class="col-1" style="background-color: cyan;"></div>
-                    <div class="col-2 mr-1">
-                        <img class="img-fluid" src="https://www.pngrepo.com/png/29731/180/sunny.png " alt="Card image cap " />
-                    </div>
-                    <div class="card-body col-8">
-                        <p style="display: inline; " class="card-title ">Social Rättvisearbetare</p>
-                        <p class="card-title ">Från: 08:00 till 15:00</p>
-                    </div>
-                </div>
 
-                <div class=" card row no-gutters align-items-center" style="background-color: brown; width: 100%">
-                    <div class="col-1" style="background-color: cyan;"></div>
-                    <div class="col-2 mr-1">
-                        <img class="img-fluid" src="https://www.pngrepo.com/png/29731/180/sunny.png " alt="Card image cap " />
-                    </div>
-                    <div class="card-body col-8">
-                        <p style="display: inline; " class="card-title ">Städa garaget</p>
-                        <p class="card-title ">Från: 15:00 till 17:00</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card row no-gutters align-items-center mt-2">
-                <div class="col-1 mr-1">
-                    <img class="img-fluid" src="https://www.pngrepo.com/png/29731/180/sunny.png " alt="Card image cap " />
-                </div>
-                <div class="card-body col-9">
-                    <p style="display: inline; " class="card-title ">Lägg till helgdag</p>
-                </div>
-                <div class="col-1">
-                    <a href="# " class="btn btn-primary rounded-circle"><span style="font-weight: bold;">+</span></a>
-                </div>
-            </div>
-
-            <div class="card row no-gutters align-items-center mt-2">
-                <div class="col-1 mr-1">
-                    <img class="img-fluid" src="https://www.pngrepo.com/png/29731/180/sunny.png " alt="Card image cap " />
-                </div>
-                <div class="card-body col-9">
-                    <p style="display: inline; " class="card-title ">Lägg till evenemang</p>
-                </div>
-                <div class="col-1">
-                    <a href="# " class="btn btn-primary rounded-circle"> <span style="font-weight: bold;">+</span></a>
-                </div>
+            <div class="bg-light border-right" id="sidebar-wrapper">
+                <div class=" sidebar-heading ">nån onclick</div>
+                <ul class="list-group list-group-flush overflow-auto " style="max-height: 40vh;">
+                    <li class="list-group-item list-group-item-action bg-light ">
+                        Dashboard
+                    </li>
+                    <li class="list-group-item list-group-item-action bg-light ">
+                        Dashboard
+                    </li>
+                    <li class="list-group-item list-group-item-action bg-light ">
+                        Dashboard
+                    </li>
+                    <li class="list-group-item list-group-item-action bg-light ">
+                        Dashboard
+                    </li>
+                    <li class="list-group-item list-group-item-action bg-light ">
+                        Dashboard
+                    </li>
+                    <li class="list-group-item list-group-item-action bg-light ">
+                        Dashboard
+                    </li>
+                    <li class="list-group-item list-group-item-action bg-light ">
+                        Dashboard
+                    </li>
+                    <li class="list-group-item list-group-item-action bg-light ">
+                        Dashboard
+                    </li>
+                    <li class="list-group-item list-group-item-action bg-light ">
+                        Dashboard
+                    </li>
+                    <li class="list-group-item list-group-item-action bg-light ">
+                        Dashboard
+                    </li>
+                    <li class="list-group-item list-group-item-action bg-light ">
+                        Dashboard
+                    </li>
+                    <li class="list-group-item list-group-item-action bg-light ">
+                        Dashboard
+                    </li>
+                </ul>
             </div>
         </aside>
 
-        <div class="col-9" style="background-color: white;">
+        <table class="table table-bordered col-9 bg-light" style="height: 89vh; margin-bottom: 0;">
+            <tbody>
+                <tr>
+                    <td class="day">1</td>
+                    <td class="day">2</td>
+                    <td class="day">3</td>
+                    <td class="day">4</td>
+                    <td class="day">5</td>
+                    <td class="day">6</td>
+                    <td class="day">7</td>
+                </tr>
+
+                <tr>
+                    <td class="day">8</td>
+                    <td class="day">9</td>
+                    <td class="day">10</td>
+                    <td class="day">11</td>
+                    <td class="day">12</td>
+                    <td class="day">13</td>
+                    <td class="day">14</td>
+                </tr>
+
+                <tr>
+                    <td class="day">15</td>
+                    <td class="day">16</td>
+                    <td class="day">17</td>
+                    <td class="day">18</td>
+                    <td class="day">19</td>
+                    <td class="day">20</td>
+                    <td class="day">21</td>
+                </tr>
+
+                <tr>
+                    <td class="day">22</td>
+                    <td class="day">23</td>
+                    <td class="day">24</td>
+                    <td class="day">25</td>
+                    <td class="day">26</td>
+                    <td class="day">27</td>
+                    <td class="day">28</td>
+                </tr>
+
+                <tr>
+                    <td class="day">29</td>
+                    <td class="day">30</td>
+                    <td class="day">31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- <div class="col-9 " style="background-color: white; ">
             <div class=" row no-gutters " style="height: 25% ">
                 <div class="card col ">TEST</div>
                 <div class="card col ">TEST</div>
@@ -146,7 +189,7 @@
                 <div class="card col ">TEST</div>
                 <div class="card col ">TEST</div>
             </div>
-        </div>
+        </div> -->
     </main>
     <script src="script.js "></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
