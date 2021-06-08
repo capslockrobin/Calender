@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body style="height: 100vh; background-color: cyan;">
+
+    <header>
+        <div class="flex" style="background-color: green;">
+            <div class="row no-gutters justify-content-center">
+                <h1>Kalender</h1>
+            </div>
+        </div>
+        <div class="flex" style="background-color: green;">
+            <div class="row no-gutters justify-content-between " style="background-color: yellow;">
+                <div class="col-3" style="background-color: yellow;"></div>
+                <div class="col-9 d-flex justify-content-around">
+                    <span>Söndag</span>
+                    <span>Måndag</span>
+                    <span>Tisdag</span>
+                    <span>Onsdag</span>
+                    <span>Torsdag</span>
+                    <span>Fredag</span>
+                    <span>Lördag</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="row no-gutters">
+        <aside class="col-3" style="background-color: cyan;">
+            <div class="row no-gutters justify-content-around align-items-center">
+                <img src="https://www.pngrepo.com/png/29731/180/sunny.png" style="width: 30%;" alt="">
+                <h5 id="todaysDate"></h5>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-9"></div>
+                <div class="col-3">
+                    <h5 id="clock"></h5>
+                </div>
+            </div>
+            <div class="card row no-gutters align-items-center mt-2">
+                <div class="col-1 mr-1">
+                    <img class="img-fluid" src="https://www.pngrepo.com/png/29731/180/sunny.png " alt="Card image cap " />
+                </div>
+                <div class="card-body col-9">
+                    <p style="display: inline; " class="card-title ">Schema för arbete/skola</p>
+                </div>
+                <div class="card row no-gutters align-items-center" style="background-color: brown; width: 100%">
+                    <div class="col-1" style="background-color: cyan;"></div>
+                    <div class="col-2 mr-1">
+                        <img class="img-fluid" src="https://www.pngrepo.com/png/29731/180/sunny.png " alt="Card image cap " />
+                    </div>
+                    <div class="card-body col-8">
+                        <p style="display: inline; " class="card-title ">Social Rättvisearbetare</p>
+                        <p class="card-title ">Från: 08:00 till 15:00</p>
+                    </div>
+                </div>
+
+                <div class=" card row no-gutters align-items-center" style="background-color: brown; width: 100%">
+                    <div class="col-1" style="background-color: cyan;"></div>
+                    <div class="col-2 mr-1">
+                        <img class="img-fluid" src="https://www.pngrepo.com/png/29731/180/sunny.png " alt="Card image cap " />
+                    </div>
+                    <div class="card-body col-8">
+                        <p style="display: inline; " class="card-title ">Städa garaget</p>
+                        <p class="card-title ">Från: 15:00 till 17:00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card row no-gutters align-items-center mt-2">
+                <div class="col-1 mr-1">
+                    <img class="img-fluid" src="https://www.pngrepo.com/png/29731/180/sunny.png " alt="Card image cap " />
+                </div>
+                <div class="card-body col-9">
+                    <p style="display: inline; " class="card-title ">Lägg till helgdag</p>
+                </div>
+                <div class="col-1">
+                    <a href="# " class="btn btn-primary rounded-circle"><span style="font-weight: bold;">+</span></a>
+                </div>
+            </div>
+
+            <div class="card row no-gutters align-items-center mt-2">
+                <div class="col-1 mr-1">
+                    <img class="img-fluid" src="https://www.pngrepo.com/png/29731/180/sunny.png " alt="Card image cap " />
+                </div>
+                <div class="card-body col-9">
+                    <p style="display: inline; " class="card-title ">Lägg till evenemang</p>
+                </div>
+                <div class="col-1">
+                    <a href="# " class="btn btn-primary rounded-circle"> <span style="font-weight: bold;">+</span></a>
+                </div>
+            </div>
+        </aside>
+
+        <div class="col-9" style="background-color: white;">
+            <div class=" row no-gutters " style="height: 25% ">
+                <div class="card col ">TEST</div>
+                <div class="card col ">TEST</div>
+                <div class="card col ">TEST</div>
+                <div class="card col ">TEST</div>
+                <div class="card col ">TEST</div>
+                <div class="card col ">TEST</div>
+                <div class="card col ">TEST</div>
+            </div>
+            <div class="row no-gutters " style="height: 25% ">
+                <div class="card col ">TEST</div>
+                <div class="card col ">TEST</div>
+                <div class="card col ">TEST</div>
+                <div class="card col ">TEST</div>
+                <div class="card col ">TEST</div>
+                <div class="card col ">TEST</div>
+                <div class="card col ">TEST</div>
+            </div>
+            <div class="row no-gutters " style="height: 25% ">
+                <div class="card col ">TEST</div>
+                <div class="card col ">TEST</div>
+                <div class="card col ">TEST</div>
+                <div class="card col ">TEST</div>
+                <div class="card col ">TEST</div>
+                <div class="card col ">TEST</div>
+                <div class="card col ">TEST</div>
+            </div>
+            <div class="row no-gutters " style="height: 25% ">
+                <div class="card col ">TEST</div>
+                <div class="card col ">TEST</div>
+                <div class="card col ">TEST</div>
+                <div class="card col ">TEST</div>
+                <div class="card col ">TEST</div>
+                <div class="card col ">TEST</div>
+                <div class="card col ">TEST</div>
+            </div>
+        </div>
+    </main>
+    <script src="script.js "></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
+</body>
+
+</html>
