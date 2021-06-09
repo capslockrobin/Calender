@@ -266,3 +266,7 @@ ul li.editMode label {
 .display-form {
     display: none;
 }
+
+.active-day {
+    background-color: blue;
+}
