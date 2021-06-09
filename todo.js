@@ -60,12 +60,18 @@ const todos = [
 
 document.addEventListener('click', myFunction);
 
-var date;
+let date = "";
+let date2 = date;
 
 function myFunction() {
-    document.body.onclick = function(e) {
-        var e = window.event
+    document.getElementById("calDays").onclick = function(e) {
+        var e = window.event;
         date = new Date(e.toElement.id);
-        console.log(date);
+        date2 = (date == "Invalid Date" || date == "undefined") ? date2 : date;
+
+        console.log(date2);
+
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById("tasklist-date").innerText = date2.toLocaleString("se-SE", options).toUpperCase();;
     }
 }
