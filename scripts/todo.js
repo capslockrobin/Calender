@@ -47,6 +47,7 @@ function validateForm() {
     }
 }
 
+let dayTodos;
 const todos = [
     { todo: "bajsa", start: '09:00', end: '17:00', dateOf: new Date() },
     { todo: "äta", start: '09:00', end: '17:00', dateOf: new Date() },
@@ -84,7 +85,7 @@ function myFunction() {
 }
 
 function filterListBasedOnDate(){
-    let dayTodos = todos.map(x => {
+    dayTodos = todos.map(x => {
         if(x.dateOf.toDateString() == dateNow.toDateString())
         {
             return x;
@@ -92,7 +93,7 @@ function filterListBasedOnDate(){
     });
     console.log(dayTodos);
   
-    let oldDayTodos = document.getElementById("todo-list-pop");
+    let oldDayTodos = document.getElementById("add-todo-pop");
     oldDayTodos.textContent = "";
 
     for(var i = 0; i < dayTodos.length; i++) {
@@ -100,7 +101,7 @@ function filterListBasedOnDate(){
         if(typeof dayTodos[i] !== 'undefined'){
             li.innerText = dayTodos[i].todo;
             console.log(li);
-            document.getElementById("todo-list-pop").appendChild(li);
+            document.getElementById("add-todo-pop").appendChild(li);
         }
     }
 }
@@ -114,52 +115,44 @@ var completedTasksHolder= document.getElementById("completed-tasks"); //complete
 
 //New Task List Item
 var createNewTaskElement = function(taskString) {
-  //Create List Item
-  var listItem = document.createElement("li");
 
-  //input (checkbox)
-  var checkBox = document.createElement("input"); // checkbox
-  //label
-  var label = document.createElement("label");
-  //input (text)
-  var editInput = document.createElement("input"); // text
-  //button.edit
-  var editButton = document.createElement("button");
-  //button.delete
-  var deleteButton = document.createElement("button");
-  
-  //Each element needs modifying
-  
-  checkBox.type = "checkbox";
-  editInput.type = "text";
-  
-  editButton.innerText = "Edit";
-  editButton.className = "edit";
-  deleteButton.innerText = "Delete";
-  deleteButton.className = "delete";
-  
-  label.innerText = taskString;
-  
-  //Each element needs appending
-  listItem.appendChild(checkBox);
-  listItem.appendChild(label);
-  listItem.appendChild(editInput);
-  listItem.appendChild(editButton);
-  listItem.appendChild(deleteButton);
+    
+        
+        //Create List Item
+        var listItem = document.createElement("li");
 
-  return listItem;
-}
+        //input (checkbox)
+        var checkBox = document.createElement("input"); // checkbox
+        //label
+        var label = document.createElement("label");
+        //input (text)
+        var editInput = document.createElement("input"); // text
+        //button.edit
+        var editButton = document.createElement("button");
+        //button.delete
+        var deleteButton = document.createElement("button");
+        
+        //Each element needs modifying
+        
+        checkBox.type = "checkbox";
+        editInput.type = "text";
+        
+        editButton.innerText = "Edit";
+        editButton.className = "edit";
+        deleteButton.innerText = "Delete";
+        deleteButton.className = "delete";
+        
+        label.innerText = taskString;
+        
+        //Each element needs appending
+        listItem.appendChild(checkBox);
+        listItem.appendChild(label);
+        listItem.appendChild(editInput);
+        listItem.appendChild(editButton);
+        listItem.appendChild(deleteButton);
 
-//Add a new task
-var addTask = function() {
-  console.log("Add task...");
-  //Create a new list item with the text from #new-task:
-  var listItem = createNewTaskElement(taskInput.value);
-  //Append listItem to incompleteTasksHolder
-  incompleteTasksHolder.appendChild(listItem);
-  bindTaskEvents(listItem, taskCompleted);
-  
-  taskInput.value = "";
+        return listItem;
+    
 }
 
 //Edit an existing task
@@ -234,13 +227,7 @@ var bindTaskEvents = function(taskListItem, checkBoxEventHandler) {
   checkBox.onchange = checkBoxEventHandler;
 }
 
-var ajaxRequest = function() {
-  console.log("AJAX request");
-}
 
-//Set the click handler to the addTask function
-addButton.addEventListener("click", addTask);
-addButton.addEventListener("click", ajaxRequest);
 
 //cycle over incompleteTasksHolder ul list items
 for(var i = 0; i < incompleteTasksHolder.children.length; i++) {
