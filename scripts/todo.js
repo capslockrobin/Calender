@@ -9,8 +9,6 @@ function processFormData() {
         let newStart = start.value;
         let end = document.getElementById('end');
         let newEnd = end.value;
-        // let dateOf = document.getElementById('dateOf');
-        // let newdateOf = dateOf.value;
 
         let newT = {
             todo: newTodo,
@@ -20,7 +18,7 @@ function processFormData() {
         };
         todos.push(newT);
         console.log(todos);
-
+        filterListBasedOnDate();
         toggleForm();
     }
 }
@@ -50,9 +48,9 @@ function validateForm() {
 }
 
 const todos = [
-    { todo: "bajsa", start: '09:00', end: '17:00', dateOf: "2021-06-20" },
-    { todo: "äta", start: '09:00', end: '17:00', dateOf: "2021-06-20" },
-    { todo: "sova", start: '09:00', end: '17:00', dateOf: "2021-06-20" },
+    { todo: "bajsa", start: '09:00', end: '17:00', dateOf: new Date() },
+    { todo: "äta", start: '09:00', end: '17:00', dateOf: new Date() },
+    { todo: "sova", start: '09:00', end: '17:00', dateOf: new Date() },
 ];
 
 
@@ -67,6 +65,7 @@ window.onload = function() {
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     document.getElementById("tasklist-date").innerText = date.toLocaleString("se-SE", options).toUpperCase();
     myFunction();
+    filterListBasedOnDate();
 }
 
 function myFunction() {
@@ -80,5 +79,28 @@ function myFunction() {
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         document.getElementById("tasklist-date").innerText = date2.toLocaleString("se-SE", options).toUpperCase();
         dateNow = date2;
+        filterListBasedOnDate();
+    }
+}
+
+function filterListBasedOnDate(){
+    let dayTodos = todos.map(x => {
+        if(x.dateOf.toDateString() == dateNow.toDateString())
+        {
+            return x;
+        }
+    });
+    console.log(dayTodos);
+  
+    let oldDayTodos = document.getElementById("todo-list-pop");
+    oldDayTodos.textContent = "";
+
+    for(var i = 0; i < dayTodos.length; i++) {
+        var li = document.createElement("li");
+        if(typeof dayTodos[i] !== 'undefined'){
+            li.innerText = dayTodos[i].todo;
+            console.log(li);
+            document.getElementById("todo-list-pop").appendChild(li);
+        }
     }
 }
