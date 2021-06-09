@@ -1,9 +1,16 @@
-document.addEventListener("click", activeDay);
+// document.addEventListener("click", activeDay);
+window.addEventListener("load", main);
 
-let id = "";
+function main() {
+    let divs = document.querySelectorAll(".day");
+    divs.forEach((el) =>
+        el.addEventListener("click", activeDay));
+}
+
+let id = ""
 
 function activeDay() {
-    if (id === "") {
+    if (id === "" || id === null) {
         id = window.event.toElement.id;
         let day = document.getElementById(id);
 
@@ -12,6 +19,7 @@ function activeDay() {
         }
 
         document.getElementById(id).classList.add("active-day");
+        return;
     }
 
     if (id !== window.event.toElement.id) {
@@ -19,10 +27,6 @@ function activeDay() {
     }
 
     id = window.event.toElement.id;
-    let day = document.getElementById(id);
-    if (!day || !day.classList.contains("day")) {
-        return;
-    }
 
     document.getElementById(id).classList.add("active-day");
 }
