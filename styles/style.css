@@ -105,6 +105,7 @@ body,
 
 
 /* Todo-list layout */
+
 .container {
     display: block;
     width: 40vw;
@@ -268,5 +269,16 @@ ul li.editMode label {
 }
 
 .active-day {
-    background-color: blue;
+    background-color: burlywood;
+    transition: 0.3s;
+}
+
+.day:hover {
+    cursor: pointer;
+    background-color: rgb(234, 210, 179);
+    transition: 0.3s;
+}
+
+.active-day:hover {
+    background-color: burlywood;
 }
