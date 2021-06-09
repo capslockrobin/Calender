@@ -59,9 +59,14 @@ const todos = [
 
 
 document.addEventListener('click', myFunction);
-
-let date = "";
+let date = new Date();
 let date2 = date;
+
+window.onload = function() {
+    date = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById("tasklist-date").innerText = date.toLocaleString("se-SE", options).toUpperCase();;
+}
 
 function myFunction() {
     document.getElementById("calDays").onclick = function(e) {

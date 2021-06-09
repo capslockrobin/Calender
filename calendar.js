@@ -68,7 +68,7 @@ function loadDays() {
     document.getElementById("calDays").innerHTML = "";
 
     var mockDate = new Date(year, month, 0);
-    var num = daysInChosenMonth(month, year);
+    var totalDays = daysInChosenMonth(month, year);
     var dayofweek = mockDate.getDay(); // find where to start calendar day of week
 
     for (var i = 0; i <= dayofweek; i++) {
@@ -78,7 +78,7 @@ function loadDays() {
         document.getElementById("calDays").appendChild(dayDiv);
     }
 
-    for (var i = 0; i < num; i++) {
+    for (var i = 0; i < totalDays; i++) {
         var dayNumber = i + 1;
         var dayDiv = document.createElement("div");
         dayDiv.id = year + "-" + (month + 1) + "-" + (i + 1);
