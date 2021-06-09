@@ -21,9 +21,6 @@ function processFormData() {
 
         toggleForm();
     }
-
-
-
 }
 
 function toggleForm() {
@@ -65,7 +62,7 @@ let date2 = date;
 window.onload = function() {
     date = new Date();
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById("tasklist-date").innerText = date.toLocaleString("se-SE", options).toUpperCase();;
+    document.getElementById("tasklist-date").innerText = date.toLocaleString("se-SE", options).toUpperCase();
 }
 
 function myFunction() {
@@ -77,6 +74,6 @@ function myFunction() {
         console.log(date2);
 
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById("tasklist-date").innerText = date2.toLocaleString("se-SE", options).toUpperCase();;
+        document.getElementById("tasklist-date").innerText = date2.toLocaleString("se-SE", options).toUpperCase();
     }
 }
