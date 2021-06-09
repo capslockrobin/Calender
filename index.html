@@ -1,158 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
 
     <title>Document</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
     </style>
-</head>
+  </head>
 
-<body style="background-color: cyan;">
-
-    <header style="height: 11vh;">
-        <div style="background-color: green;">
-            <div class="row no-gutters justify-content-center">
-                <h1>Kalender</h1>
-            </div>
+  <body style="background-color: cyan">
+    <header style="height: 11vh">
+      <div style="background-color: green">
+        <div class="row no-gutters justify-content-center">
+          <h1>Kalender</h1>
         </div>
-        <div class="flex" style="background-color: green;">
-            <div class="row no-gutters justify-content-between " style="background-color: yellow;">
-                <div class="col-3" style="background-color: yellow;"></div>
-                <div class="col-9 d-flex justify-content-around">
-                    <span>Söndag</span>
-                    <span>Måndag</span>
-                    <span>Tisdag</span>
-                    <span>Onsdag</span>
-                    <span>Torsdag</span>
-                    <span>Fredag</span>
-                    <span>Lördag</span>
-                </div>
-            </div>
+      </div>
+      <div class="flex" style="background-color: green">
+        <div
+          class="row no-gutters justify-content-between"
+          style="background-color: yellow"
+        >
+          <div class="col-3" style="background-color: yellow"></div>
+          <div class="col-9 d-flex justify-content-around">
+            <span>Söndag</span>
+            <span>Måndag</span>
+            <span>Tisdag</span>
+            <span>Onsdag</span>
+            <span>Torsdag</span>
+            <span>Fredag</span>
+            <span>Lördag</span>
+          </div>
         </div>
+      </div>
     </header>
 
-    <main class="row no-gutters" style="min-height: 89vh; max-height: 89vh;">
-        <aside class="col-3" style="background-color: cyan;">
-            <div class="row no-gutters justify-content-around align-items-center">
-                <img src="https://www.pngrepo.com/png/29731/180/sunny.png" style="width: 30%" alt="" />
-                <h5 id="todaysDate"></h5>
-            </div>
-            <div class="row no-gutters">
-                <div class="col-9"></div>
-                <div class="col-3">
-                    <h5 id="clock"></h5>
-                </div>
-            </div>
+    <main class="row no-gutters" style="min-height: 89vh; max-height: 89vh">
+      <aside class="col-3" style="background-color: cyan">
+        <div class="row no-gutters justify-content-around align-items-center">
+          <img
+            src="https://www.pngrepo.com/png/29731/180/sunny.png"
+            style="width: 30%"
+            alt=""
+          />
+          <h5 id="todaysDate"></h5>
+        </div>
+        <div class="row no-gutters">
+          <div class="col-9"></div>
+          <div class="col-3">
+            <h5 id="clock"></h5>
+          </div>
+        </div>
 
-            <div class="bg-light border-right" id="sidebar-wrapper">
-                <div class=" sidebar-heading ">nån onclick</div>
-                <ul class="list-group list-group-flush overflow-auto " style="max-height: 40vh;">
-                    <li class="list-group-item list-group-item-action bg-light ">
-                        Dashboard
-                    </li>
-                    <li class="list-group-item list-group-item-action bg-light ">
-                        Dashboard
-                    </li>
-                    <li class="list-group-item list-group-item-action bg-light ">
-                        Dashboard
-                    </li>
-                    <li class="list-group-item list-group-item-action bg-light ">
-                        Dashboard
-                    </li>
-                    <li class="list-group-item list-group-item-action bg-light ">
-                        Dashboard
-                    </li>
-                    <li class="list-group-item list-group-item-action bg-light ">
-                        Dashboard
-                    </li>
-                    <li class="list-group-item list-group-item-action bg-light ">
-                        Dashboard
-                    </li>
-                    <li class="list-group-item list-group-item-action bg-light ">
-                        Dashboard
-                    </li>
-                    <li class="list-group-item list-group-item-action bg-light ">
-                        Dashboard
-                    </li>
-                    <li class="list-group-item list-group-item-action bg-light ">
-                        Dashboard
-                    </li>
-                    <li class="list-group-item list-group-item-action bg-light ">
-                        Dashboard
-                    </li>
-                    <li class="list-group-item list-group-item-action bg-light ">
-                        Dashboard
-                    </li>
-                </ul>
-            </div>
-        </aside>
+        <div class="bg-light border-right" id="sidebar-wrapper">
+          <div class="sidebar-heading">nån onclick</div>
+          <ul
+            class="list-group list-group-flush overflow-auto"
+            style="max-height: 40vh"
+          >
+            <li class="list-group-item list-group-item-action bg-light">
+              Dashboard
+            </li>
+            <li class="list-group-item list-group-item-action bg-light">
+              Dashboard
+            </li>
+            <li class="list-group-item list-group-item-action bg-light">
+              Dashboard
+            </li>
+            <li class="list-group-item list-group-item-action bg-light">
+              Dashboard
+            </li>
+            <li class="list-group-item list-group-item-action bg-light">
+              Dashboard
+            </li>
+            <li class="list-group-item list-group-item-action bg-light">
+              Dashboard
+            </li>
+            <li class="list-group-item list-group-item-action bg-light">
+              Dashboard
+            </li>
+            <li class="list-group-item list-group-item-action bg-light">
+              Dashboard
+            </li>
+            <li class="list-group-item list-group-item-action bg-light">
+              Dashboard
+            </li>
+            <li class="list-group-item list-group-item-action bg-light">
+              Dashboard
+            </li>
+            <li class="list-group-item list-group-item-action bg-light">
+              Dashboard
+            </li>
+            <li class="list-group-item list-group-item-action bg-light">
+              Dashboard
+            </li>
+          </ul>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="toggleForm()">Lägg till</button>
 
-        <table class="table table-bordered col-9 bg-light" style="height: 89vh; margin-bottom: 0;">
-            <tbody>
-                <tr>
-                    <td class="day">1</td>
-                    <td class="day">2</td>
-                    <td class="day">3</td>
-                    <td class="day">4</td>
-                    <td class="day">5</td>
-                    <td class="day">6</td>
-                    <td class="day">7</td>
-                </tr>
+        <form class="display-form" name="add" id="add-todo">
+          <label
+            >Todo:
+            <input type="text" name="todo" id="todo" required/>
+          </label>
+          <label
+            >Startar:
+            <input type="time" name="startar" id="start" min="00:00" max="24:00" required/>
+          </label>
+          <label
+            >Slutar:
+            <input type="time" name="Slutar" id="end" min="00:00" max="24:00" required/>
+          </label>
+          <!-- <label
+            >Dautum:
+            <input type="date" name="dateOf" id="dateOf" />
+          </label> -->
+          <input
+            type="button"
+            name="submit"
+            value="Submit"
+            onclick="processFormData();"
+          />
+        </form>
+      </aside>
 
-                <tr>
-                    <td class="day">8</td>
-                    <td class="day">9</td>
-                    <td class="day">10</td>
-                    <td class="day">11</td>
-                    <td class="day">12</td>
-                    <td class="day">13</td>
-                    <td class="day">14</td>
-                </tr>
+      <table
+        class="table table-bordered col-9 bg-light"
+        style="height: 89vh; margin-bottom: 0"
+      >
+        <tbody>
+          <tr>
+            <td class="day">1</td>
+            <td class="day">2</td>
+            <td class="day">3</td>
+            <td class="day">4</td>
+            <td class="day">5</td>
+            <td class="day">6</td>
+            <td class="day">7</td>
+          </tr>
 
-                <tr>
-                    <td class="day">15</td>
-                    <td class="day">16</td>
-                    <td class="day">17</td>
-                    <td class="day">18</td>
-                    <td class="day">19</td>
-                    <td class="day">20</td>
-                    <td class="day">21</td>
-                </tr>
+          <tr>
+            <td class="day">8</td>
+            <td class="day">9</td>
+            <td class="day">10</td>
+            <td class="day">11</td>
+            <td class="day">12</td>
+            <td class="day">13</td>
+            <td class="day">14</td>
+          </tr>
 
-                <tr>
-                    <td class="day">22</td>
-                    <td class="day">23</td>
-                    <td class="day">24</td>
-                    <td class="day">25</td>
-                    <td class="day">26</td>
-                    <td class="day">27</td>
-                    <td class="day">28</td>
-                </tr>
+          <tr>
+            <td class="day">15</td>
+            <td class="day">16</td>
+            <td class="day">17</td>
+            <td class="day">18</td>
+            <td class="day">19</td>
+            <td class="day">20</td>
+            <td class="day">21</td>
+          </tr>
 
-                <tr>
-                    <td class="day">29</td>
-                    <td class="day">30</td>
-                    <td class="day">31</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
+          <tr>
+            <td class="day">22</td>
+            <td class="day">23</td>
+            <td class="day">24</td>
+            <td class="day">25</td>
+            <td class="day">26</td>
+            <td class="day">27</td>
+            <td class="day">28</td>
+          </tr>
 
-        <!-- <div class="col-9 " style="background-color: white; ">
+          <tr>
+            <td class="day">29</td>
+            <td class="day">30</td>
+            <td class="day">31</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- <div class="col-9 " style="background-color: white; ">
             <div class=" row no-gutters " style="height: 25% ">
                 <div class="card col ">TEST</div>
                 <div class="card col ">TEST</div>
@@ -191,10 +233,21 @@
             </div>
         </div> -->
     </main>
-    <script src="script.js "></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
-</body>
-
+    <script defer src="script.js "></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js "
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo "
+      crossorigin="anonymous "
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js "
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 "
+      crossorigin="anonymous "
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js "
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM "
+      crossorigin="anonymous "
+    ></script>
+  </body>
 </html>

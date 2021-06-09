@@ -13,3 +13,7 @@ html {
     cursor: pointer;
     background-color: beige;
 }
+
+.display-form{
+    display: none;
+}
