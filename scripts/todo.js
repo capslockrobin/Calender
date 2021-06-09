@@ -1,3 +1,5 @@
+let dateNow;
+
 function processFormData() {
 
     if (validateForm()) {
@@ -14,7 +16,7 @@ function processFormData() {
             todo: newTodo,
             start: newStart,
             end: newEnd,
-            // dateOf: newdateOf
+            dateOf: dateNow,
         };
         todos.push(newT);
         console.log(todos);
@@ -61,8 +63,10 @@ let date2 = date;
 
 window.onload = function() {
     date = new Date();
+    dateNow = date;
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     document.getElementById("tasklist-date").innerText = date.toLocaleString("se-SE", options).toUpperCase();
+    myFunction();
 }
 
 function myFunction() {
@@ -75,5 +79,6 @@ function myFunction() {
 
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         document.getElementById("tasklist-date").innerText = date2.toLocaleString("se-SE", options).toUpperCase();
+        dateNow = date2;
     }
 }
