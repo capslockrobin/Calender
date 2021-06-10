@@ -81,7 +81,17 @@ function loadDays() {
     for (var i = 0; i < totalDays; i++) {
         var dayNumber = i + 1;
         var dayDiv = document.createElement("div");
-        dayDiv.id = year + "-" + (month + 1) + "-" + (i + 1);
+
+        const options = {
+            year: "numeric",
+            month: "numeric",
+            day: "numeric",
+        };
+
+        var dateIdPart = new Date(year + "-" + (month + 1) + "-" + (i + 1)).toLocaleString("se-SE", options);
+        var dateIdPartString = String(dateIdPart);
+        dayDiv.id = dateIdPartString;
+        // dayDiv.id = year + "-" + (month + 1) + "-" + (i + 1); <-- Keep if refactored solution above breaks anything
         dayDiv.className = "day";
         dayDiv.innerHTML = dayNumber;
 
