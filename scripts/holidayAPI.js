@@ -2,7 +2,7 @@ window.addEventListener(
     "load",
     observeMonthAndYear,
     setMonthAndYear,
-    getHolidaysAPI
+    // getHolidaysAPI
 );
 
 function observeMonthAndYear() {
@@ -14,13 +14,13 @@ function observeMonthAndYear() {
         window.WebKitMutationObserver ||
         window.MozMutationObserver;
 
-    var observer = new MutationObserver(setMonthAndYear);
-    observer.observe(monthListener, {
+    var monthObserver = new MutationObserver(setMonthAndYear);
+    monthObserver.observe(monthListener, {
         childList: true,
     });
 
-    var observer2 = new MutationObserver(setMonthAndYear);
-    observer2.observe(yearListener, {
+    var yearObserver = new MutationObserver(setMonthAndYear);
+    yearObserver.observe(yearListener, {
         childList: true,
     });
 }
@@ -69,28 +69,13 @@ function getHolidaysAPI(month, year) {
         });
 
         for (let i = 0; i < holidays.length; i++) {
-            console.log(document.getElementById(holidays[i].datum))
+            // console.log(document.getElementById(holidays[i].datum))
+            if (document.getElementById(holidays[i].datum).innerText.length > 2) {
+                return;
+            }
 
-            document.getElementById(holidays[i].datum).innerText = holidays[i].helgdag;
+            document.getElementById(holidays[i].datum).innerHTML += "<p>" + holidays[i].helgdag + "</p>";
         }
         return holidays;
     });
-
-    // console.log(holidays);
-
-    // holidays.forEach(element => {
-    //     console.log(element);
-    // });
-
-    // function addHoliday() {
-    //     holidays.forEach((element) => {
-    //         console.log(element);
-    //     });
-    // }
-
-    // addHoliday();
-}
-
-function addToCalendar() {
-
 }
