@@ -76,9 +76,31 @@
                       required
                     />
                   </label>
-                                <input type="button" name="submit" value="Submit" onclick="processFormData();" />
 
-                            </form>
+                  <input
+                    type="button"
+                    name="submit"
+                    value="Submit"
+                    onclick="processFormData();"
+                  />
+
+                </form>
+              </div>
+              <div class="section2">
+                <h3>To-do</h3>
+                    <ul id="todo-list-pop"></ul>
+              </div>
+            </ul>
+          </div>
+        </aside>
+
+        <div class="calendar col-9" id="calendar" style="height: 89vh">
+          <div class="row no-gutters justify-content-around">
+            <div class="calendar-btn month-btn" onclick="toggleMonths()">
+              <span id="currentMonth"></span>
+              <div id="months" class="months dropdown"></div>
+            </div>
+
                         </div>
                         <div class="section2">
                             <h3>To-do</h3>
