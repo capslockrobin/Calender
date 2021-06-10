@@ -11,6 +11,7 @@ function processFormData() {
         let newEnd = end.value;
 
         let newT = {
+            Id: todos.length + 1,
             todo: newTodo,
             start: newStart,
             end: newEnd,
@@ -49,9 +50,9 @@ function validateForm() {
 
 let dayTodos;
 const todos = [
-    { todo: "bajsa", start: '09:00', end: '17:00', dateOf: new Date() },
-    { todo: "äta", start: '09:00', end: '17:00', dateOf: new Date() },
-    { todo: "sova", start: '09:00', end: '17:00', dateOf: new Date() },
+    { Id: 1, todo: "bajsa", start: '09:00', end: '17:00', dateOf: new Date() },
+    { Id: 2, todo: "äta", start: '09:00', end: '17:00', dateOf: new Date() },
+    { Id: 3, todo: "sova", start: '09:00', end: '17:00', dateOf: new Date() },
 ];
 
 
@@ -70,8 +71,7 @@ window.onload = function() {
 }
 
 function dateNowOnClick() {
-
-
+    document.getElementById("calDays").onclick = function(e) {
         var e = window.event;
         date = new Date(e.toElement.id);
         date2 = (date == "Invalid Date" || date == "undefined") ? date2 : date;
@@ -82,7 +82,7 @@ function dateNowOnClick() {
         document.getElementById("tasklist-date").innerText = date2.toLocaleString("se-SE", options).toUpperCase();
         dateNow = date2;
         filterListBasedOnDate();
-    
+    }
 }
 
 function filterListBasedOnDate(){
@@ -136,3 +136,7 @@ function filterListBasedOnDate(){
         }
     }
 }
+
+// deleteTodo(){
+    
+// }
