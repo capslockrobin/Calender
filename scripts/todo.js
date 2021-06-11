@@ -1,3 +1,5 @@
+
+
 let dateNow;
 
 function processFormData() {
@@ -10,17 +12,22 @@ function processFormData() {
         let end = document.getElementById('end');
         let newEnd = end.value;
 
-        let newT = {
-            Id: todos.length + 1,
-            todo: newTodo,
-            start: newStart,
-            end: newEnd,
-            dateOf: dateNow,
-        };
+        let newT = 
+            {
+                Id: todos.length + 1,
+                todo: newTodo,
+                start: newStart,
+                end: newEnd,
+                dateOf: dateNow,
+            }
+        
         todos.push(newT);
         console.log(todos);
         filterListBasedOnDate();
         toggleForm();
+
+        saveToLocalStorage(todos);
+            
     }
 }
 
@@ -49,11 +56,7 @@ function validateForm() {
 }
 
 let dayTodos;
-const todos = [
-    { Id: 1, todo: "bajsa", start: '09:00', end: '17:00', dateOf: new Date() },
-    { Id: 2, todo: "äta", start: '09:00', end: '17:00', dateOf: new Date() },
-    { Id: 3, todo: "sova", start: '09:00', end: '17:00', dateOf: new Date() },
-];
+let todos = [ ];
 
 
 
@@ -67,6 +70,7 @@ window.onload = function() {
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     document.getElementById("tasklist-date").innerText = date.toLocaleString("se-SE", options).toUpperCase();
     dateNowOnClick();
+    initTodos();
     filterListBasedOnDate();
 }
 
@@ -144,6 +148,30 @@ function filterListBasedOnDate() {
     }
 }
 
-// deleteTodo(){
 
+// function deleteTodo(){
+//     var listItem = document.getElementById("todo-list-pop").parentNode.nodeName;
+//     console.log(listItem);
+//     window.localStorage
+
+//     localStorage.setItem("MIN katt", "spacy")
+
+//     var cat = localStorage.getItem("min katt")
+
+//     localStorage.minakatter = JSON.stringify(mycats) //spara
+//     const mycatss = JSON.parse(localStorage.minakatter) // läsa
+//     console.log(mycatss)
+
+//     localStorage.setItem("form", värde)
 // }
+
+function saveToLocalStorage(newT) {
+    localStorage.setItem("Todo",JSON.stringify(newT))
+}
+
+function initTodos(){
+    const todoString = localStorage.getItem("Todo");
+    todos = JSON.parse(todoString || "[]"); 
+    console.log(todos);
+}
+
