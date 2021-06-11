@@ -70,13 +70,13 @@
           <div class="bg-light border-right" id="sidebar-wrapper">
             <div id="tasklist-date" class="sidebar-heading"></div>
             <ul
-              class="list-group list-group-flush overflow-auto"
-              style="max-height: 40vh"
+              class="list-group list-group-flush overflow-auto side"
+
             >
               <div class="section1">
                 <button
                   type="button"
-                  class="btn btn-primary"
+                  class="addBtn"
                   onclick="toggleForm()"
                 >
                   Lägg till
@@ -110,15 +110,16 @@
                   </label>
 
                   <input
+                  class="submitBtn"
                     type="button"
                     name="submit"
-                    value="Submit"
+                    value="Godkänn"
                     onclick="processFormData();"
                   />
                 </form>
               </div>
               <div class="section2">
-                <h3>To-do</h3>
+                <h4>Schema för arbete/skola</h4>
                 <ul id="todo-list-pop"></ul>
               </div>
             </ul>
