@@ -5,6 +5,7 @@ function main() {
     let divs = document.querySelectorAll(".day");
     divs.forEach((el) =>
         el.addEventListener("click", activeDay));
+    setActiveDay();
 }
 
 let id = ""
@@ -22,11 +23,25 @@ function activeDay() {
         return;
     }
 
-    if (id !== window.event.toElement.id) {
+    if (window.event.toElement.id && id !== window.event.toElement.id) {
         document.getElementById(id).classList.remove("active-day");
+    }
+    if (!window.event.toElement.id) {
+        return;
     }
 
     id = window.event.toElement.id;
 
     document.getElementById(id).classList.add("active-day");
+}
+
+function setActiveDay() {
+    const options = {
+        year: "numeric",
+        month: "numeric",
+        day: "numeric",
+    };
+    let todaysDate = new Date().toLocaleString("se-SE", options);
+    document.getElementById(todaysDate).classList.add("active-day");
+    id = todaysDate;
 }
