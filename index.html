@@ -31,8 +31,8 @@
     </header> -->
 
     <main style="max-height: 100vh; min-height: 100vh">
-        <div class="row no-gutters">
-            <aside class="col-3" style="background-color: cyan">
+        <div class="row no-gutters ">
+            <aside class="col-3 aside">
                 <div class="row no-gutters justify-content-around align-items-center">
                     <img src="https://www.pngrepo.com/png/29731/180/sunny.png" style="width: 30%" alt="" />
                     <h5 id="todaysDate"></h5>
@@ -45,9 +45,10 @@
                     </div>
                 </div>
 
-                <div class="bg-light border-right" id="sidebar-wrapper">
-                    <div id="tasklist-date" class="sidebar-heading"></div>
-                    <ul class="list-group list-group-flush overflow-auto side">
+                <div class="bg-light border-right sidebar" id="sidebar-wrapper">
+                    
+                    <ul class="list-group list-group-flush overflow-auto">
+                      <div id="tasklist-date" class="sidebar-heading"></div>
                         <div class="section1">
                             <button type="button" class="addBtn" onclick="toggleForm()">
                   Lägg till

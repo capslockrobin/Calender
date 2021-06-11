@@ -2,6 +2,7 @@
     background-color: white;
     padding: 20px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+    height: 100vh;
 }
 
 .calendar .dropdown {
@@ -119,6 +120,7 @@
 
 .solid-divider {
     border-top: 1px solid #105279;
+    margin-top: 12px;
 }
 
 .active-day {

@@ -213,6 +213,11 @@ ul li.editMode label {
     border: 1px solid #105279;
 }
 
-.side {
-    height: 48em;
+.sidebar {
+    margin-top: 13px;
+}
+
+.aside {
+    height: 100vh;
+    background-color: cyan
 }
