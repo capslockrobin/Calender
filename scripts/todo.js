@@ -14,7 +14,7 @@ function processFormData() {
 
         let newT = 
             {
-                Id: todos.length + 1,
+                Id: todos.length,
                 todo: newTodo,
                 start: newStart,
                 end: newEnd,
@@ -128,7 +128,10 @@ function filterListBasedOnDate() {
             var editButton = document.createElement("button");
             //button.delete
             var deleteButton = document.createElement("button");
-
+            deleteButton.setAttribute("id", dayTodos[i].Id);
+            deleteButton.addEventListener("click", deleteTodo, true);
+            // deleteButton.addEventListener("click", deleteTodo())
+            
             //Each element needs modifying
 
             editInput.type = "text";
@@ -151,25 +154,25 @@ function filterListBasedOnDate() {
     }
 }
 
+// let testare = document.getElementsByClassName("delete");
+// testare.addEventListener("click", deleteTodo());
 
-// function deleteTodo(){
-//     var listItem = document.getElementById("todo-list-pop").parentNode.nodeName;
-//     console.log(listItem);
-//     window.localStorage
+// let deleteButtons = document.getElementsByClassName("delete");
+//     deleteButtons.forEach((deleteButton) =>
+//         deleteButton.addEventListener("click", deleteTodo));
 
-//     localStorage.setItem("MIN katt", "spacy")
+function deleteTodo(event){
+    console.log(event)
+    let dayId = event.target.attributes.id;
+    console.log(dayId);
+    todos.splice(dayId, 1);
 
-//     var cat = localStorage.getItem("min katt")
+    saveToLocalStorage(todos);
+    filterListBasedOnDate();
+}
 
-//     localStorage.minakatter = JSON.stringify(mycats) //spara
-//     const mycatss = JSON.parse(localStorage.minakatter) // läsa
-//     console.log(mycatss)
-
-//     localStorage.setItem("form", värde)
-// }
-
-function saveToLocalStorage(newT) {
-    localStorage.setItem("Todo",JSON.stringify(newT))
+function saveToLocalStorage(todos) {
+    localStorage.setItem("Todo",JSON.stringify(todos))
 }
 
 function initTodos(){
