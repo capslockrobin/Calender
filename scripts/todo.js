@@ -98,12 +98,17 @@ function dateNowOnClick() {
 }
 
 function filterListBasedOnDate() {
+
     dayTodos = todos.map(x => {
-        if (x.dateOf.toDateString() == dateNow.toDateString()) {
-            return x;
+        {
+            let todoDate = new Date(x.dateOf);
+           
+            if(todoDate.toDateString() == dateNow.toDateString())
+                {
+                    return x;
+                }          
         }
     });
-    console.log(dayTodos);
 
     let oldDayTodos = document.getElementById("todo-list-pop");
     oldDayTodos.textContent = "";
@@ -111,9 +116,7 @@ function filterListBasedOnDate() {
     for (var i = 0; i < dayTodos.length; i++) {
         var li = document.createElement("li");
         if (typeof dayTodos[i] !== 'undefined') {
-            // li.innerText = dayTodos[i].todo;
-            // console.log(li);
-
+ 
             //Create List Item
             var listItem = document.createElement("li");
 
