@@ -5,7 +5,7 @@ function main() {
     let divs = document.querySelectorAll(".day");
     divs.forEach((el) =>
         el.addEventListener("click", activeDay));
-    setActiveDay();
+    setActiveDayOnLoad();
 }
 
 let id = ""
@@ -35,7 +35,7 @@ function activeDay() {
     document.getElementById(id).classList.add("active-day");
 }
 
-function setActiveDay() {
+function setActiveDayOnLoad() {
     const options = {
         year: "numeric",
         month: "numeric",
