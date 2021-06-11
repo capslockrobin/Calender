@@ -77,6 +77,7 @@ window.onload = function() {
 function dateNowOnClick() {
     document.getElementById("calDays").onclick = function(e) {
         var e = window.event;
+        console.log(e);
         date = new Date(e.toElement.id);
         date2 = (date == "Invalid Date" || date == "undefined") ? date2 : date;
 
@@ -84,30 +85,36 @@ function dateNowOnClick() {
 
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         document.getElementById("tasklist-date").innerText = date2.toLocaleString("se-SE", options).toUpperCase();
+
+        if (e.target.childElementCount > 0) {
+            document.getElementById("tasklist-date").innerText =
+                date2.toLocaleString("se-SE", options).toUpperCase() + " " + e.target.children[0].innerText;
+        }
+
         dateNow = date2;
+
         filterListBasedOnDate();
     }
 }
 
-function filterListBasedOnDate(){
+function filterListBasedOnDate() {
     dayTodos = todos.map(x => {
-        if(x.dateOf.toDateString() == dateNow.toDateString())
-        {
+        if (x.dateOf.toDateString() == dateNow.toDateString()) {
             return x;
         }
     });
     console.log(dayTodos);
-  
+
     let oldDayTodos = document.getElementById("todo-list-pop");
     oldDayTodos.textContent = "";
 
-    for(var i = 0; i < dayTodos.length; i++) {
+    for (var i = 0; i < dayTodos.length; i++) {
         var li = document.createElement("li");
-        if(typeof dayTodos[i] !== 'undefined'){
+        if (typeof dayTodos[i] !== 'undefined') {
             // li.innerText = dayTodos[i].todo;
             // console.log(li);
 
-                //Create List Item
+            //Create List Item
             var listItem = document.createElement("li");
 
             //label
@@ -118,19 +125,19 @@ function filterListBasedOnDate(){
             var editButton = document.createElement("button");
             //button.delete
             var deleteButton = document.createElement("button");
-            
+
             //Each element needs modifying
-            
+
             editInput.type = "text";
-            
-            editButton.innerText = "Edit";
+
+            editButton.innerText = "Ändra";
             editButton.className = "edit";
-            deleteButton.innerText = "Delete";
+            deleteButton.innerText = "Ta bort";
             deleteButton.className = "delete";
-            
+
             label.innerText = dayTodos[i].todo;
-            
-           
+
+
             listItem.appendChild(label);
             listItem.appendChild(editInput);
             listItem.appendChild(editButton);
@@ -140,6 +147,7 @@ function filterListBasedOnDate(){
         }
     }
 }
+
 
 // function deleteTodo(){
 //     var listItem = document.getElementById("todo-list-pop").parentNode.nodeName;
@@ -166,3 +174,4 @@ function initTodos(){
     todos = JSON.parse(todoString || "[]"); 
     console.log(todos);
 }
+
