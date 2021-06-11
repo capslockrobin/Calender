@@ -1,5 +1,3 @@
-
-
 let dateNow;
 
 function processFormData() {
@@ -12,22 +10,21 @@ function processFormData() {
         let end = document.getElementById('end');
         let newEnd = end.value;
 
-        let newT = 
-            {
-                Id: todos.length,
-                todo: newTodo,
-                start: newStart,
-                end: newEnd,
-                dateOf: dateNow,
-            }
-        
+        let newT = {
+            Id: todos.length,
+            todo: newTodo,
+            start: newStart,
+            end: newEnd,
+            dateOf: dateNow,
+        }
+
         todos.push(newT);
         console.log(todos);
         filterListBasedOnDate();
         toggleForm();
 
         saveToLocalStorage(todos);
-            
+
     }
 }
 
@@ -56,7 +53,7 @@ function validateForm() {
 }
 
 let dayTodos;
-let todos = [ ];
+let todos = [];
 
 
 
@@ -77,11 +74,8 @@ window.onload = function() {
 function dateNowOnClick() {
     document.getElementById("calDays").onclick = function(e) {
         var e = window.event;
-        console.log(e);
         date = new Date(e.toElement.id);
         date2 = (date == "Invalid Date" || date == "undefined") ? date2 : date;
-
-        console.log(date2);
 
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         document.getElementById("tasklist-date").innerText = date2.toLocaleString("se-SE", options).toUpperCase();
@@ -102,11 +96,10 @@ function filterListBasedOnDate() {
     dayTodos = todos.map(x => {
         {
             let todoDate = new Date(x.dateOf);
-           
-            if(todoDate.toDateString() == dateNow.toDateString())
-                {
-                    return x;
-                }          
+
+            if (todoDate.toDateString() == dateNow.toDateString()) {
+                return x;
+            }
         }
     });
 
@@ -116,7 +109,7 @@ function filterListBasedOnDate() {
     for (var i = 0; i < dayTodos.length; i++) {
         var li = document.createElement("li");
         if (typeof dayTodos[i] !== 'undefined') {
- 
+
             //Create List Item
             var listItem = document.createElement("li");
 
@@ -130,8 +123,7 @@ function filterListBasedOnDate() {
             var deleteButton = document.createElement("button");
             deleteButton.setAttribute("id", dayTodos[i].Id);
             deleteButton.addEventListener("click", deleteTodo, true);
-            // deleteButton.addEventListener("click", deleteTodo())
-            
+
             //Each element needs modifying
 
             editInput.type = "text";
@@ -154,30 +146,21 @@ function filterListBasedOnDate() {
     }
 }
 
-// let testare = document.getElementsByClassName("delete");
-// testare.addEventListener("click", deleteTodo());
+function deleteTodo(event) {
+    let dayId = event.target.attributes.id.textContent;
+    var item = todos.find(x => x.Id == dayId);
+    var index = todos.findIndex(element => element == item);
 
-// let deleteButtons = document.getElementsByClassName("delete");
-//     deleteButtons.forEach((deleteButton) =>
-//         deleteButton.addEventListener("click", deleteTodo));
-
-function deleteTodo(event){
-    console.log(event)
-    let dayId = event.target.attributes.id;
-    console.log(dayId);
-    todos.splice(dayId, 1);
-
+    todos.splice(index, 1);
     saveToLocalStorage(todos);
     filterListBasedOnDate();
 }
 
 function saveToLocalStorage(todos) {
-    localStorage.setItem("Todo",JSON.stringify(todos))
+    localStorage.setItem("Todo", JSON.stringify(todos))
 }
 
-function initTodos(){
+function initTodos() {
     const todoString = localStorage.getItem("Todo");
-    todos = JSON.parse(todoString || "[]"); 
-    console.log(todos);
+    todos = JSON.parse(todoString || "[]");
 }
-
