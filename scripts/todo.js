@@ -119,9 +119,9 @@ function filterListBasedOnDate(){
             
             editInput.type = "text";
             
-            editButton.innerText = "Edit";
+            editButton.innerText = "Ändra";
             editButton.className = "edit";
-            deleteButton.innerText = "Delete";
+            deleteButton.innerText = "Ta bort";
             deleteButton.className = "delete";
             
             label.innerText = dayTodos[i].todo;
