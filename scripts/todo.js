@@ -94,7 +94,7 @@ function dateNowOnClick() {
 
 function filterListBasedOnDate() {
 
-    dayTodos = todos.map(x => {
+    dayTodos = todos.filter(x => {
         {
             let todoDate = new Date(x.dateOf);
 
@@ -103,10 +103,16 @@ function filterListBasedOnDate() {
             }
         }
     });
+
+    console.log(dayTodos);
     
     dayTodos.sort((a, b) => {
-        let aTime = parseFloat(a.start);
-        let bTime = parseFloat(b.start);
+        let aString = a.start.replace(':','.');
+        let bString = b.start.replace(':','.');
+      
+        let aTime = parseFloat(aString);
+        let bTime = parseFloat(bString);
+     
     if (aTime > bTime) {
         return 1;
     }
