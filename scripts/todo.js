@@ -107,7 +107,7 @@ function filterListBasedOnDate() {
     oldDayTodos.textContent = "";
 
     for (var i = 0; i < dayTodos.length; i++) {
-        var li = document.createElement("li");
+        // var li = document.createElement("li");
         if (typeof dayTodos[i] !== 'undefined') {
 
             //Create List Item
@@ -117,8 +117,11 @@ function filterListBasedOnDate() {
             var label = document.createElement("label");
             //input (text)
             var editInput = document.createElement("input"); // text
+            
             //button.edit
             var editButton = document.createElement("button");
+            editButton.setAttribute("id", dayTodos[i].Id);
+            editButton.addEventListener("click", edditTodo, true);
             //button.delete
             var deleteButton = document.createElement("button");
             deleteButton.setAttribute("id", dayTodos[i].Id);
@@ -155,6 +158,67 @@ function deleteTodo(event) {
     saveToLocalStorage(todos);
     filterListBasedOnDate();
 }
+
+let idEdditTodo;
+let indexToChange;
+
+function edditTodo(event) {
+    console.log("najs");
+    toggleEdditForm();
+    idEdditTodo = event.target.attributes.id.textContent;
+    var item = todos.find(x => x.Id == idEdditTodo);
+    indexToChange = todos.findIndex(element => element == item);
+}
+
+function toggleEdditForm() {
+    var frm_element = document.getElementById('eddit-todo-form');
+
+    var vis = frm_element.style;
+
+    if (vis.display == '' || vis.display == 'none') {
+        vis.display = 'block';
+    } else {
+        vis.display = 'none';
+    }
+}
+
+function processEdditFormData(){
+     if (validateEditForm()) {
+        let todo = document.getElementById("eddit-todo");
+        let newTodo = todo.value;
+        let start = document.getElementById("eddit-start");
+        let newStart = start.value;
+        let end = document.getElementById("eddit-end");
+        let newEnd = end.value;
+
+       todos.forEach(element => {
+           if(idEdditTodo == element.Id)
+           {
+               element.todo = newTodo;
+               element.start = newStart;
+               element.end = newEnd;
+           }
+       });
+        console.log(todos);
+        filterListBasedOnDate();
+        toggleEdditForm();
+
+        saveToLocalStorage(todos);
+    }
+}
+
+function validateEditForm() {
+    var x = document.forms["eddit-todo-form"]["eddit-todo"].value;
+    let start = document.forms["eddit-todo-form"]["eddit-start"].value;
+    let end = document.forms["eddit-todo-form"]["eddit-end"].value;
+    if (x == "" || start == "" || end == "") {
+        alert("Fyll i alla värden i din todo!");
+        return false;
+    } else {
+        return true;
+    }
+}
+
 
 function saveToLocalStorage(todos) {
     localStorage.setItem("Todo", JSON.stringify(todos))
