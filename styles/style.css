@@ -221,3 +221,7 @@ ul li.editMode label {
     height: 100vh;
     background-color: cyan
 }
+
+.display-eddit-form {
+    display: none;
+}
