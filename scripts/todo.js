@@ -132,9 +132,13 @@ function filterListBasedOnDate() {
         if (typeof dayTodos[i] !== 'undefined') {
             //Create List Item
             var listItem = document.createElement("li");
-
+            var divStartEnd = document.createElement("div");
+            var divChangeDeleteBtn = document.createElement("div");
             //label
+            var divTodo = document.createElement("div");
             var label = document.createElement("label");
+            var startP = document.createElement("span");
+            var endP = document.createElement("span");
             //input (text)
             var editInput = document.createElement("input"); // text
             
@@ -149,20 +153,36 @@ function filterListBasedOnDate() {
 
             //Each element needs modifying
 
-            editInput.type = "text";
+            // editInput.type = "text";
+            divStartEnd.className = "divStartEnd";
+            divChangeDeleteBtn.className = "divChangeDeleteBtn";
 
             editButton.innerText = "Ändra";
             editButton.className = "edit";
             deleteButton.innerText = "Ta bort";
             deleteButton.className = "delete";
 
+
+            divTodo.className = "divTodo";
             label.innerText = dayTodos[i].todo;
+            label.className = "todo";
+            startP.innerText = "Startar " + dayTodos[i].start;
+            startP.className = "startTid";
+            endP.innerText = "Slutar " + dayTodos[i].end;
+            endP.className = "slutTid";
 
+            divTodo.appendChild(label);
 
-            listItem.appendChild(label);
-            listItem.appendChild(editInput);
-            listItem.appendChild(editButton);
-            listItem.appendChild(deleteButton);
+            divStartEnd.appendChild(startP);
+            divStartEnd.appendChild(endP);
+
+            // divChangeDeleteBtn.appendChild(editInput);
+            divChangeDeleteBtn.appendChild(editButton);
+            divChangeDeleteBtn.appendChild(deleteButton);
+
+            listItem.appendChild(divTodo);
+            listItem.appendChild(divStartEnd);
+            listItem.appendChild(divChangeDeleteBtn);
 
             document.getElementById("todo-list-pop").appendChild(listItem);
         }
