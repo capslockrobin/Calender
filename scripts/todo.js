@@ -47,6 +47,9 @@ function validateForm() {
     if (x == "" || start == "" || end == "") {
         alert("Fyll i alla värden i din todo!");
         return false;
+    } else if (start > end){
+        alert("Du kan inte ha en tidigare sluttid än starttid");
+        return false;
     } else {
         return true;
     }
@@ -234,7 +237,10 @@ function validateEditForm() {
     if (x == "" || start == "" || end == "") {
         alert("Fyll i alla värden i din todo!");
         return false;
-    } else {
+    } else if (start > end){
+        alert("Du kan inte ha en tidigare sluttid än starttid");
+        return false;
+    }else {
         return true;
     }
 }
