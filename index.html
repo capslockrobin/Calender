@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="stylesheet" href="styles/calendar.css" />
+    <link rel="stylesheet" href="styles/todo.css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -78,7 +79,7 @@
                 <form class="display-form" name="add" id="add-todo">
                   <label
                     >Todo:
-                    <input type="text" name="todo" id="todo" required />
+                    <input type="text" name="todo" id="todo" placeholder="skriv din todo..." required />
                   </label>
                   <label
                     >Startar:
@@ -108,7 +109,7 @@
                     type="button"
                     name="submit"
                     value="Godkänn"
-                    onclick="processFormData();"
+                    onclick="processFormData()"
                   />
                 </form>
               </div>
@@ -118,7 +119,7 @@
                 <!-- injected from js -->
                 <form class="display-eddit-form" name="eddit" id="eddit-todo-form">
                      <label>Todo
-                        <input type="text" id="eddit-todo">
+                        <input type="text" id="eddit-todo" placeholder="ändra din todo...">
                     </label>
                      <label 
                     >Startar:
