@@ -41,10 +41,10 @@ function toggleForm() {
 }
 
 function validateForm() {
-    var x = document.forms["add-todo"]["todo"].value;
+    var todo = document.forms["add-todo"]["todo"].value;
     let start = document.forms["add-todo"]["start"].value;
     let end = document.forms["add-todo"]["end"].value;
-    if (x == "" || start == "" || end == "") {
+    if (todo == "" || start == "" || end == "") {
         alert("Fyll i alla värden i din todo!");
         return false;
     } else if (start > end){
@@ -140,8 +140,8 @@ function filterListBasedOnDate() {
             //label
             var divTodo = document.createElement("div");
             var label = document.createElement("label");
-            var startP = document.createElement("span");
-            var endP = document.createElement("span");
+            var startTime = document.createElement("span");
+            var endTime = document.createElement("span");
             //input (text)
             var editInput = document.createElement("input"); // text
             
@@ -167,17 +167,17 @@ function filterListBasedOnDate() {
 
 
             divTodo.className = "divTodo";
-            label.innerText = dayTodos[i].todo;
+            label.innerText = "todo: " + dayTodos[i].todo;
             label.className = "todo";
-            startP.innerText = "Startar " + dayTodos[i].start;
-            startP.className = "startTid";
-            endP.innerText = "Slutar " + dayTodos[i].end;
-            endP.className = "slutTid";
+            startTime.innerText = "Startar " + dayTodos[i].start;
+            startTime.className = "startTid";
+            endTime.innerText = "Slutar " + dayTodos[i].end;
+            endTime.className = "slutTid";
 
             divTodo.appendChild(label);
 
-            divStartEnd.appendChild(startP);
-            divStartEnd.appendChild(endP);
+            divStartEnd.appendChild(startTime);
+            divStartEnd.appendChild(endTime);
 
             // divChangeDeleteBtn.appendChild(editInput);
             divChangeDeleteBtn.appendChild(editButton);
@@ -251,10 +251,10 @@ function processEdditFormData(){
 }
 
 function validateEditForm() {
-    var x = document.forms["eddit-todo-form"]["eddit-todo"].value;
+    var todo = document.forms["eddit-todo-form"]["eddit-todo"].value;
     let start = document.forms["eddit-todo-form"]["eddit-start"].value;
     let end = document.forms["eddit-todo-form"]["eddit-end"].value;
-    if (x == "" || start == "" || end == "") {
+    if (todo == "" || start == "" || end == "") {
         alert("Fyll i alla värden i din todo!");
         return false;
     } else if (start > end){

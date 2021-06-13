@@ -77,13 +77,18 @@
                   Lägg till
                 </button>
                 <form class="display-form" name="add" id="add-todo">
+                  <div class="labelInput">
                   <label
                     >Todo:
                     <input type="text" name="todo" id="todo" placeholder="skriv din todo..." required />
                   </label>
+                  </div>
+                  <div class="divStartEnd2">
+                    <div class="divStartEnd3">
                   <label
                     >Startar:
                     <input
+                    class="startTid"
                       type="time"
                       name="startar"
                       id="start"
@@ -95,6 +100,7 @@
                   <label
                     >Slutar:
                     <input
+                    class="slutTid"
                       type="time"
                       name="Slutar"
                       id="end"
@@ -103,7 +109,7 @@
                       required
                     />
                   </label>
-
+                  </div>
                   <input
                     class="submitBtn"
                     type="button"
@@ -111,6 +117,7 @@
                     value="Godkänn"
                     onclick="processFormData()"
                   />
+                  </div>
                 </form>
               </div>
               <div class="section2">
@@ -118,12 +125,15 @@
                 <ul id="todo-list-pop"></ul>
                 <!-- injected from js -->
                 <form class="display-eddit-form" name="eddit" id="eddit-todo-form">
+                  <div class="edit-form">
                      <label>Todo
                         <input type="text" id="eddit-todo" placeholder="ändra din todo...">
                     </label>
+                    <div class="start-end">
                      <label 
                     >Startar:
                     <input
+                    class="startTid"
                       type="time"
                       name="startar"
                       id="eddit-start"
@@ -135,6 +145,7 @@
                   <label
                     >Slutar:
                     <input
+                    class="slutTid"
                       type="time"
                       name="Slutar"
                       id="eddit-end"
@@ -143,6 +154,7 @@
                       required
                     />
                   </label>
+                  </div>
                   <input
                     class="submitBtn"
                     type="button"
@@ -150,6 +162,7 @@
                     value="Godkänn"
                     onclick="processEdditFormData();"
                   />
+                  </div>
                 </form>
             </ul>
           </div>

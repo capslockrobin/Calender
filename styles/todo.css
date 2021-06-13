@@ -102,10 +102,6 @@ ul li.editMode label {
     display: none;
 }
 
-.display-form {
-    display: none;
-}
-
 .edit {
     background-color: #1784c3;
     color: #ffffff;
@@ -152,7 +148,7 @@ ul li.editMode label {
     font-weight: 500;
     padding: 0.4em 1.8em;
     border-radius: 50px;
-    margin: 10px 0 30px 10px;
+    margin-bottom: 10px;
 }
 
 .submitBtn:hover {
@@ -200,6 +196,22 @@ ul li.editMode label {
     margin-bottom: 10px;
 }
 
+.divStartEnd2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    margin-bottom: 10px;
+}
+
+.divStartEnd3{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .startTid {
     color: green;
 }
@@ -224,6 +236,7 @@ ul li.editMode label {
 }
 
 .divTodo {
+  display: inline-block;
   color: #000000;
   position: relative;
   margin-bottom: 8px;
@@ -231,10 +244,70 @@ ul li.editMode label {
   border-radius: 3px;
   padding: 0 15px;
   text-align: center;
+  width: 12em;
+  opacity: 80%;
 }
 
 label {
     margin-top: 0.5rem;
+}
+
+.labelInput {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.startTid {
+    background-color: #00af00;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border: 2px solid #008b00;
+    font-weight: 500;
+    padding: 0.2em 0.9em;
+    border-radius: 50px;
+    margin: 5px;
+}
+
+.slutTid {
+    background-color: #ff0000;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border: 2px solid #880000;
+    font-weight: 500;
+    padding: 0.2em 0.9em;
+    border-radius: 50px;
+    margin: 5px;
+}
+
+.display-form {
+    display: none;
+}
+
+.sidebar-heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-form .start-end {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 
