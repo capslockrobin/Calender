@@ -189,7 +189,6 @@ function filterListBasedOnDate() {
             divStartEnd.appendChild(startTime);
             divStartEnd.appendChild(endTime);
 
-            // divChangeDeleteBtn.appendChild(editInput);
             divChangeDeleteBtn.appendChild(editButton);
             divChangeDeleteBtn.appendChild(deleteButton);
 
@@ -220,8 +219,27 @@ function todoCountForDate() {
         month: "numeric",
         day: "numeric",
     };
+
+        //removing old elements to recount
+       todos.forEach(x => {
+        dates.forEach(y => {
+              let todoDate = new Date(x.dateOf);
+            if(todoDate.toDateString() == y.toDateString())
+            {
+                let random = new Date(y).toLocaleString("se-SE", options2);
+                let thisDay = document.getElementById(random);
+                
+                const elements = document.getElementsByClassName("todo-count");
+
+                while (elements.length > 0) elements[0].remove();
+
+                thisDay.classList.remove("has-todos");  
+            }
+        })
+    }) 
+
     
-   
+    //adding 
     todos.forEach(x => {
         dates.forEach(y => {
               let todoDate = new Date(x.dateOf);
@@ -231,25 +249,19 @@ function todoCountForDate() {
 
                 let random = new Date(y).toLocaleString("se-SE", options2);
                 let thisDay = document.getElementById(random);
-                let test = document.createElement("p");
-
-                test.className = "todo-count";
-                      
-
-                      
-                test.innerText = "";
-                test.innerText = result.length;
-                            
+                           
                 if(!thisDay.classList.contains("has-todos"))
                 {  
+                    let test = document.createElement("p");
+                    test.className = "todo-count";
+                    test.innerText = "";
+                    test.innerText = result.length;
                     thisDay.classList.add("has-todos");
                     thisDay.appendChild(test);
-                }
+                }  
             }
         })
-    })
-
-   
+    }) 
 }
 
 let idEdditTodo;
