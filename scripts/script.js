@@ -1,4 +1,3 @@
-// document.addEventListener("click", activeDay);
 window.addEventListener("load", main);
 
 function main() {
@@ -36,9 +35,9 @@ let id2;
 //     document.getElementById(id).classList.add("active-day");
 // }
 
-function activeDay() {
+function activeDay(e) {
     if (id === "" || id === null) {
-        id = window.event.toElement.id;
+        id = e.target.attributes.id.textContent;
         let day = document.getElementById(id);
 
         if (!day || !day.classList.contains("day")) {
@@ -49,39 +48,24 @@ function activeDay() {
         return;
     }
 
-    if (window.event.toElement.id && id !== window.event.toElement.id) {
+    if (e.target.attributes.id.textContent && id !== e.target.attributes.id.textContent) {
         document.getElementById(id).classList.remove("active-day");
     }
-    if (!window.event.toElement.id) {
+    if (!e.target.attributes.id.textContent) {
         return;
     }
 
-    id = window.event.toElement.id;
+    id = e.target.attributes.id.textContent;
     day = document.getElementById(id);
     if (day.classList.contains("active-day")) {
-        console.log("heja")
         day.classList.remove("active-day");
-        console.log(dateNow);
         dateNow = null;
-        // filterListBasedOnDate();
         return;
     } else {
         day.classList.add("active-day");
         return;
     }
 }
-
-// function activeDay(e) {
-//     let calDay = document.getElementById(e.target.attributes.id.textContent);
-//     console.log(calDay);
-
-//     if (calDay.classList.contains("active-day")) {
-//         calDay.classList.remove("active-day");
-//     } else {
-//         calDay.classList.add("active-day");
-//     }
-// }
-
 
 function setActiveDayOnLoad() {
     const options = {
