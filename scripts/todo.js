@@ -72,6 +72,7 @@ window.onload = function() {
     dateNowOnClick();
     initTodos();
     filterListBasedOnDate();
+    todoCountForDate();
 }
 
 function dateNowOnClick() {
@@ -207,6 +208,56 @@ function deleteTodo(event) {
     todos.splice(index, 1);
     saveToLocalStorage(todos);
     filterListBasedOnDate();
+}
+
+function todoCountForDate() {
+    let dateArr = [];
+    let thisDayTodos = todos.filter((x) => {
+        {
+            dates.forEach(element => {
+
+                let todoDate = new Date(x.dateOf);
+                if (todoDate.toDateString() == element.toDateString()) {
+                    dateArr.push(element);
+                }
+            });
+        }
+    });
+
+    const options2 = {
+        year: "numeric",
+        month: "numeric",
+        day: "numeric",
+    };
+
+    todos.forEach((x) => {
+        dates.forEach((element) => {
+            let todoDate = new Date(x.dateOf);
+
+            if (todoDate.toDateString() == element.toDateString()) {
+                const result = dateArr.filter((x) => x.toDateString() == element.toDateString());
+
+                result.forEach((dateTodo) => {
+                    if (dateTodo.toDateString() == element.toDateString()) {
+                        let random = new Date(element).toLocaleString("se-SE", options2);
+                        let thisDay = document.getElementById(random);
+
+                        let test = document.createElement("p");
+                        test.className = "todo-count";
+                        test.innerText = result.length;
+                        // if (thisDay.childElementCount > 0) {
+                        //     return;
+                        // }
+                        thisDay.appendChild(test);
+                    }
+                });
+
+                // console.log(thisDay);
+            }
+        });
+    });
+
+    console.log(thisDayTodos);
 }
 
 let idEdditTodo;
