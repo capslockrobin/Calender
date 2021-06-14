@@ -73,8 +73,13 @@ function getHolidaysAPI(month, year) {
             // if (document.getElementById(holidays[i].datum).innerText.length > 2) {
             //     return;
             // }
+            if (document.getElementById(holidays[i].datum).classList.contains("has-holidays")) {
+                return;
+            }
 
-            document.getElementById(holidays[i].datum).innerHTML += "<p>" + holidays[i].helgdag + "</p>";
+            document.getElementById(document.getElementById(holidays[i].datum).classList.add("has-holidays"));
+            document.getElementById(holidays[i].datum).innerHTML +=
+                "<p>" + holidays[i].helgdag + "</p>";
         }
         return holidays;
     });

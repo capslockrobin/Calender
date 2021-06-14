@@ -22,8 +22,9 @@ function processFormData() {
         console.log(todos);
         filterListBasedOnDate();
         toggleForm();
-
         saveToLocalStorage(todos);
+        todoCountForDate();
+
 
     }
 }
@@ -229,25 +230,46 @@ function todoCountForDate() {
         month: "numeric",
         day: "numeric",
     };
-
+    let hasTodos = false;
     todos.forEach((x) => {
         dates.forEach((element) => {
             let todoDate = new Date(x.dateOf);
 
             if (todoDate.toDateString() == element.toDateString()) {
-                const result = dateArr.filter((x) => x.toDateString() == element.toDateString());
+                let result = dateArr.filter((x) => x.toDateString() == element.toDateString());
 
                 result.forEach((dateTodo) => {
                     if (dateTodo.toDateString() == element.toDateString()) {
                         let random = new Date(element).toLocaleString("se-SE", options2);
                         let thisDay = document.getElementById(random);
-
                         let test = document.createElement("p");
+
                         test.className = "todo-count";
-                        test.innerText = result.length;
+                        // test.innerText = result.length;
                         // if (thisDay.childElementCount > 0) {
                         //     return;
                         // }
+                        console.log(thisDay.childElementCount);
+                        console.log(result.length);
+                        if (thisDay.classList.contains("has-todos")) {
+                            hasTodos = true;
+                        }
+
+                        if (!hasTodos) {
+                            hasTodos = true;
+
+                            test.innerText = "";
+                            test.innerText =
+                                result.length;
+                            thisDay.classList.add("has-todos");
+                            thisDay.appendChild(test);
+                        }
+
+                        hasTodos = false;
+
+                        test.innerText = "";
+                        test.innerText = result.length;
+                        thisDay.classList.add("has-todos");
                         thisDay.appendChild(test);
                     }
                 });
@@ -256,8 +278,6 @@ function todoCountForDate() {
             }
         });
     });
-
-    console.log(thisDayTodos);
 }
 
 let idEdditTodo;
