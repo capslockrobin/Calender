@@ -20,10 +20,12 @@ function processFormData() {
 
         todos.push(newT);
         console.log(todos);
+       
         filterListBasedOnDate();
         toggleForm();
-
         saveToLocalStorage(todos);
+         todoCountForDate();
+
 
     }
 }
@@ -72,6 +74,7 @@ window.onload = function() {
     dateNowOnClick();
     initTodos();
     filterListBasedOnDate();
+    todoCountForDate();
 }
 
 function dateNowOnClick() {
@@ -186,7 +189,6 @@ function filterListBasedOnDate() {
             divStartEnd.appendChild(startTime);
             divStartEnd.appendChild(endTime);
 
-            // divChangeDeleteBtn.appendChild(editInput);
             divChangeDeleteBtn.appendChild(editButton);
             divChangeDeleteBtn.appendChild(deleteButton);
 
@@ -207,6 +209,59 @@ function deleteTodo(event) {
     todos.splice(index, 1);
     saveToLocalStorage(todos);
     filterListBasedOnDate();
+}
+
+function todoCountForDate() {
+
+
+    const options2 = {
+        year: "numeric",
+        month: "numeric",
+        day: "numeric",
+    };
+
+        //removing old elements to recount
+       todos.forEach(x => {
+        dates.forEach(y => {
+              let todoDate = new Date(x.dateOf);
+            if(todoDate.toDateString() == y.toDateString())
+            {
+                let random = new Date(y).toLocaleString("se-SE", options2);
+                let thisDay = document.getElementById(random);
+                
+                const elements = document.getElementsByClassName("todo-count");
+
+                while (elements.length > 0) elements[0].remove();
+
+                thisDay.classList.remove("has-todos");  
+            }
+        })
+    }) 
+
+    
+    //adding 
+    todos.forEach(x => {
+        dates.forEach(y => {
+              let todoDate = new Date(x.dateOf);
+            if(todoDate.toDateString() == y.toDateString())
+            {
+                let result = todos.filter((x) => new Date(x.dateOf).toDateString() == y.toDateString());
+
+                let random = new Date(y).toLocaleString("se-SE", options2);
+                let thisDay = document.getElementById(random);
+                           
+                if(!thisDay.classList.contains("has-todos"))
+                {  
+                    let test = document.createElement("p");
+                    test.className = "todo-count";
+                    test.innerText = "";
+                    test.innerText = result.length;
+                    thisDay.classList.add("has-todos");
+                    thisDay.appendChild(test);
+                }  
+            }
+        })
+    }) 
 }
 
 let idEdditTodo;

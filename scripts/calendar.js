@@ -3,6 +3,7 @@ const startYear = 2015;
 const endYear = 2025;
 let year = 0;
 let month = 0;
+let dates = [];
 
 function loadMonths() {
     for (var i = 0; i < months.length; i++) {
@@ -87,12 +88,15 @@ function loadDays() {
             month: "numeric",
             day: "numeric",
         };
-
         var dateIdPart = new Date(year + "-" + (month + 1) + "-" + (i + 1)).toLocaleString("se-SE", options);
         var dateIdPartString = String(dateIdPart);
+        let dateTest = new Date(dateIdPart);
+        // console.log(dateTest);
+        dates.push(dateTest);
         dayDiv.id = dateIdPartString;
         // dayDiv.id = year + "-" + (month + 1) + "-" + (i + 1); <-- Keep if refactored solution above breaks anything
         dayDiv.className = "day";
+        dayDiv.classList.add("calendar-day");
         dayDiv.innerHTML = dayNumber;
 
         document.getElementById("calDays").appendChild(dayDiv);

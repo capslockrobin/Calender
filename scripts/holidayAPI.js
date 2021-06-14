@@ -70,11 +70,16 @@ function getHolidaysAPI(month, year) {
 
         for (let i = 0; i < holidays.length; i++) {
             // console.log(document.getElementById(holidays[i].datum))
-            if (document.getElementById(holidays[i].datum).innerText.length > 2) {
+            // if (document.getElementById(holidays[i].datum).innerText.length > 2) {
+            //     return;
+            // }
+            if (document.getElementById(holidays[i].datum).classList.contains("has-holidays")) {
                 return;
             }
 
-            document.getElementById(holidays[i].datum).innerHTML += "<p>" + holidays[i].helgdag + "</p>";
+            document.getElementById(document.getElementById(holidays[i].datum).classList.add("has-holidays"));
+            document.getElementById(holidays[i].datum).innerHTML +=
+                "<p>" + holidays[i].helgdag + "</p>";
         }
         return holidays;
     });
