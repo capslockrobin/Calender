@@ -47,7 +47,7 @@ function validateForm() {
     if (todo == "" || start == "" || end == "") {
         alert("Fyll i alla värden i din todo!");
         return false;
-    } else if (start > end){
+    } else if (start > end) {
         alert("Du kan inte ha en tidigare sluttid än starttid");
         return false;
     } else {
@@ -75,7 +75,7 @@ window.onload = function() {
 }
 
 function dateNowOnClick() {
-    document.getElementById("calDays").onclick = function(e) {
+    document.getElementById("calDays").onclick = function() {
         var e = window.event;
         date = new Date(e.toElement.id);
         date2 = (date == "Invalid Date" || date == "undefined") ? date2 : date;
@@ -88,19 +88,26 @@ function dateNowOnClick() {
                 date2.toLocaleString("se-SE", options).toUpperCase() + " " + e.target.children[0].innerText;
         }
 
-        dateNow = date2;
+        if (!dateNow) {
+            filterListBasedOnDate();
+            dateNow = date2;
+            return;
+        }
 
+        dateNow = date2;
         filterListBasedOnDate();
     }
 }
-
 
 function filterListBasedOnDate() {
 
     dayTodos = todos.filter(x => {
         {
             let todoDate = new Date(x.dateOf);
-
+            if (!dateNow) {
+                x = null;
+                return x;
+            }
             if (todoDate.toDateString() == dateNow.toDateString()) {
                 return x;
             }
@@ -108,21 +115,21 @@ function filterListBasedOnDate() {
     });
 
     console.log(dayTodos);
-    
+
     dayTodos.sort((a, b) => {
-        let aString = a.start.replace(':','.');
-        let bString = b.start.replace(':','.');
-      
+        let aString = a.start.replace(':', '.');
+        let bString = b.start.replace(':', '.');
+
         let aTime = parseFloat(aString);
         let bTime = parseFloat(bString);
-     
-    if (aTime > bTime) {
-        return 1;
-    }
-    if (aTime < bTime) {
-        return -1;
-    }
-    return 0;
+
+        if (aTime > bTime) {
+            return 1;
+        }
+        if (aTime < bTime) {
+            return -1;
+        }
+        return 0;
     });
 
     console.log(dayTodos);
@@ -144,7 +151,7 @@ function filterListBasedOnDate() {
             var endTime = document.createElement("span");
             //input (text)
             var editInput = document.createElement("input"); // text
-            
+
             //button.edit
             var editButton = document.createElement("button");
             editButton.setAttribute("id", dayTodos[i].Id);
@@ -225,8 +232,8 @@ function toggleEdditForm() {
     }
 }
 
-function processEdditFormData(){
-     if (validateEditForm()) {
+function processEdditFormData() {
+    if (validateEditForm()) {
         let todo = document.getElementById("eddit-todo");
         let newTodo = todo.value;
         let start = document.getElementById("eddit-start");
@@ -234,14 +241,14 @@ function processEdditFormData(){
         let end = document.getElementById("eddit-end");
         let newEnd = end.value;
 
-       todos.forEach(element => {
-           if(idEdditTodo == element.Id)
-           {
-               element.todo = newTodo;
-               element.start = newStart;
-               element.end = newEnd;
-           }
-       });
+        todos.forEach(element => {
+            console.log("editing" + element.Id);
+            if (idEdditTodo == element.Id) {
+                element.todo = newTodo;
+                element.start = newStart;
+                element.end = newEnd;
+            }
+        });
         console.log(todos);
         filterListBasedOnDate();
         toggleEdditForm();
@@ -257,10 +264,10 @@ function validateEditForm() {
     if (todo == "" || start == "" || end == "") {
         alert("Fyll i alla värden i din todo!");
         return false;
-    } else if (start > end){
+    } else if (start > end) {
         alert("Du kan inte ha en tidigare sluttid än starttid");
         return false;
-    }else {
+    } else {
         return true;
     }
 }
