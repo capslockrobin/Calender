@@ -20,10 +20,11 @@ function processFormData() {
 
         todos.push(newT);
         console.log(todos);
+       
         filterListBasedOnDate();
         toggleForm();
         saveToLocalStorage(todos);
-        todoCountForDate();
+         todoCountForDate();
 
 
     }
@@ -212,72 +213,43 @@ function deleteTodo(event) {
 }
 
 function todoCountForDate() {
-    let dateArr = [];
-    let thisDayTodos = todos.filter((x) => {
-        {
-            dates.forEach(element => {
 
-                let todoDate = new Date(x.dateOf);
-                if (todoDate.toDateString() == element.toDateString()) {
-                    dateArr.push(element);
-                }
-            });
-        }
-    });
 
     const options2 = {
         year: "numeric",
         month: "numeric",
         day: "numeric",
     };
-    let hasTodos = false;
-    todos.forEach((x) => {
-        dates.forEach((element) => {
-            let todoDate = new Date(x.dateOf);
+    
+   
+    todos.forEach(x => {
+        dates.forEach(y => {
+              let todoDate = new Date(x.dateOf);
+            if(todoDate.toDateString() == y.toDateString())
+            {
+                let result = todos.filter((x) => new Date(x.dateOf).toDateString() == y.toDateString());
 
-            if (todoDate.toDateString() == element.toDateString()) {
-                let result = dateArr.filter((x) => x.toDateString() == element.toDateString());
+                let random = new Date(y).toLocaleString("se-SE", options2);
+                let thisDay = document.getElementById(random);
+                let test = document.createElement("p");
 
-                result.forEach((dateTodo) => {
-                    if (dateTodo.toDateString() == element.toDateString()) {
-                        let random = new Date(element).toLocaleString("se-SE", options2);
-                        let thisDay = document.getElementById(random);
-                        let test = document.createElement("p");
+                test.className = "todo-count";
+                      
 
-                        test.className = "todo-count";
-                        // test.innerText = result.length;
-                        // if (thisDay.childElementCount > 0) {
-                        //     return;
-                        // }
-                        console.log(thisDay.childElementCount);
-                        console.log(result.length);
-                        if (thisDay.classList.contains("has-todos")) {
-                            hasTodos = true;
-                        }
-
-                        if (!hasTodos) {
-                            hasTodos = true;
-
-                            test.innerText = "";
-                            test.innerText =
-                                result.length;
-                            thisDay.classList.add("has-todos");
-                            thisDay.appendChild(test);
-                        }
-
-                        hasTodos = false;
-
-                        test.innerText = "";
-                        test.innerText = result.length;
-                        thisDay.classList.add("has-todos");
-                        thisDay.appendChild(test);
-                    }
-                });
-
-                // console.log(thisDay);
+                      
+                test.innerText = "";
+                test.innerText = result.length;
+                            
+                if(!thisDay.classList.contains("has-todos"))
+                {  
+                    thisDay.classList.add("has-todos");
+                    thisDay.appendChild(test);
+                }
             }
-        });
-    });
+        })
+    })
+
+   
 }
 
 let idEdditTodo;
