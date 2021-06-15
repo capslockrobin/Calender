@@ -1,6 +1,6 @@
 
 //Globale variables:
-let dateNow; //date set when change day
+let dateNow = new Date(); //date set when change day
 let dayTodos = []; //the specific date todos
 let todos = []; //all todos from local storage
 let idEdditTodo; //save id when you click on eddit
@@ -101,6 +101,8 @@ function dateNowOnClick() {
             dateNow = date2;
             return;
         }
+
+        dateNow = date2;
 
         filterListBasedOnDate();
     }
