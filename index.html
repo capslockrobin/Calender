@@ -46,12 +46,11 @@
                         <h5 id="clock"></h5>
                     </div>
                 </div>
-
-                <div class="bg-light border-right sidebar" id="sidebar-wrapper">
-                    <ul class="list-group list-group-flush overflow-auto">
-                        <div id="tasklist-date" class="sidebar-heading"></div>
-                        <div class="section1">
-                            <button type="button" class="addBtn" onclick="toggleForm()">
+          <div class="bg-light border-right sidebar" id="sidebar-wrapper">
+            <ul class="list-group list-group-flush overflow-auto">
+              <div id="tasklist-date" class="sidebar-heading"></div>
+              <div class="section1">
+                <button type="button" id="add-Buttom-Toogle" class="addBtn">
                   Lägg till
                 </button>
                             <form class="display-form" name="add" id="add-todo">
@@ -84,19 +83,24 @@
                       required
                     />
                   </label>
-                                    </div>
-                                    <input class="submitBtn" type="button" name="submit" value="Godkänn" onclick="processFormData()" />
-                                </div>
-                            </form>
-                        </div>
-                        <div class="section2">
-                            <h4>Schema för arbete/skola</h4>
-                            <ul id="todo-list-pop"></ul>
-                            <!-- injected from js -->
-                            <form class="display-eddit-form" name="eddit" id="eddit-todo-form">
-                                <div class="edit-form">
-                                    <label>Todo
-                        <input type="text" id="eddit-todo" placeholder="ändra din todo...">
+                  </div>
+                  <input
+                    class="submitBtn"
+                    type="submit"
+                    name="submit"
+                    value="Godkänn"
+                  />
+                  </div>
+                </form>
+              </div>
+              <div class="section2">
+                <h4>Schema för arbete/skola</h4>
+                <ul id="todo-list-pop"></ul>
+                <!-- injected from js -->
+                <form class="display-eddit-form" name="eddit" id="eddit-todo-form">
+                  <div class="edit-form">
+                     <label>Todo
+                        <input type="text" id="edditTodo" placeholder="ändra din todo...">
                     </label>
                                     <div class="start-end">
                                         <label>Startar:
@@ -104,7 +108,7 @@
                     class="startTid"
                       type="time"
                       name="startar"
-                      id="eddit-start"
+                      id="edditStart"
                       min="00:00"
                       max="24:00"
                       required
@@ -115,19 +119,24 @@
                     class="slutTid"
                       type="time"
                       name="Slutar"
-                      id="eddit-end"
+                      id="edditEnd"
                       min="00:00"
                       max="24:00"
                       required
                     />
                   </label>
-                                    </div>
-                                    <input class="submitBtn" type="button" name="submit" value="Godkänn" onclick="processEdditFormData();" />
-                                </div>
-                            </form>
-                    </ul>
-                    </div>
-            </aside>
+                  </div>
+                  <input
+                    class="submitBtn"
+                    type="submit"
+                    name="submit"
+                    value="Godkänn"
+                  />
+                  </div>
+                </form>
+            </ul>
+          </div>
+        </aside>
 
             <div class="calendar col-9" id="calendar" style="height: 100%">
                 <div class="row no-gutters justify-content-around">
