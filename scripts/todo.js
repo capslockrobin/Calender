@@ -1,4 +1,3 @@
-
 //Globale variables:
 let dateNow = new Date(); //date set when change day
 let dayTodos = []; //the specific date todos
@@ -25,7 +24,7 @@ function processFormData(event) {
 
         todos.push(newT);
         console.log(todos);
-       
+
         filterListBasedOnDate();
         toggleForm();
         saveToLocalStorage(todos);
@@ -33,7 +32,7 @@ function processFormData(event) {
     }
 }
 
-function addFromEventListeners(){
+function addFromEventListeners() {
     const addForm = document.getElementById("add-todo");
     addForm.addEventListener("submit", processFormData);
 
@@ -41,7 +40,7 @@ function addFromEventListeners(){
     edditForm.addEventListener("submit", processEdditFormData)
 }
 
-function addButtomToggleEventListener(){
+function addButtomToggleEventListener() {
     const toggleButtom = document.getElementById("add-Buttom-Toogle");
     toggleButtom.addEventListener("click", toggleForm);
 }
@@ -78,7 +77,7 @@ function validateForm(event) {
     }
 }
 
-function addDateNowEventListener(){
+function addDateNowEventListener() {
     document.addEventListener('click', dateNowOnClick);
 }
 
@@ -91,6 +90,8 @@ function dateNowOnClick() {
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         document.getElementById("tasklist-date").innerText = date2.toLocaleString("se-SE", options).toUpperCase();
 
+
+        //Antalet todos för valda datumet satt i tasklist-date header. Använd något annanstans?
         if (e.target.childElementCount > 0) {
             document.getElementById("tasklist-date").innerText =
                 date2.toLocaleString("se-SE", options).toUpperCase() + " " + e.target.children[0].innerText;
@@ -108,12 +109,12 @@ function dateNowOnClick() {
     }
 }
 
-function loadFirstDate(){
+function loadFirstDate() {
     date = new Date();
     date2 = date;
 }
 
-function setTodoListHeaderDate(){
+function setTodoListHeaderDate() {
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     document.getElementById("tasklist-date").innerText = date.toLocaleString("se-SE", options).toUpperCase();
 }
@@ -162,7 +163,7 @@ function filterListBasedOnDate() {
             let divTodo = document.createElement("div");
             let label = document.createElement("label");
             let startTime = document.createElement("span");
-            let endTime = document.createElement("span");           
+            let endTime = document.createElement("span");
 
             //button.edit
             let editButton = document.createElement("button");
@@ -225,50 +226,48 @@ function todoCountForDate() {
         month: "numeric",
         day: "numeric",
     };
-        //removing old elements to recount
-       todos.forEach(x => {
-        dates.forEach(y => {
-              let todoDate = new Date(x.dateOf);
-            if(todoDate.toDateString() == y.toDateString())
-            {
-                let dateId = new Date(y).toLocaleString("se-SE", options2);
-                let thisDay = document.getElementById(dateId);
-                if(!thisDay){
-                    return;
+    //removing old elements to recount
+    todos.forEach(x => {
+            dates.forEach(y => {
+                let todoDate = new Date(x.dateOf);
+                if (todoDate.toDateString() == y.toDateString()) {
+                    let dateId = new Date(y).toLocaleString("se-SE", options2);
+                    let thisDay = document.getElementById(dateId);
+                    if (!thisDay) {
+                        return;
+                    }
+
+                    const elements = document.getElementsByClassName("todo-count");
+                    while (elements.length > 0) elements[0].remove();
+
+                    thisDay.classList.remove("has-todos");
                 }
-
-                const elements = document.getElementsByClassName("todo-count");
-                while (elements.length > 0) elements[0].remove();
-
-                thisDay.classList.remove("has-todos");    
-            }
+            })
         })
-    }) 
-    //adding 
+        //adding 
     todos.forEach(x => {
         dates.forEach(y => {
-              let todoDate = new Date(x.dateOf);
-            if(todoDate.toDateString() == y.toDateString())
-            {
+            let todoDate = new Date(x.dateOf);
+            if (todoDate.toDateString() == y.toDateString()) {
                 let result = todos.filter((x) => new Date(x.dateOf).toDateString() == y.toDateString());
 
                 let dateId = new Date(y).toLocaleString("se-SE", options2);
-                let thisDay = document.getElementById(dateId);   
-                if(!thisDay){
+                let thisDay = document.getElementById(dateId);
+                if (!thisDay) {
                     return;
                 }
 
-                if(!thisDay.classList.contains("has-todos")){
+                if (!thisDay.classList.contains("has-todos")) {
                     let todoCount = document.createElement("p");
                     todoCount.className = "todo-count";
                     todoCount.innerText = "";
                     todoCount.innerText = result.length;
                     thisDay.classList.add("has-todos");
                     thisDay.appendChild(todoCount);
-                }  
+                }
             }
         })
-    }) 
+    })
 }
 
 function edditTodo(event) {
@@ -308,7 +307,7 @@ function processEdditFormData(event) {
                 element.end = newEnd;
             }
         });
-   
+
         filterListBasedOnDate();
         toggleEdditForm();
         saveToLocalStorage(todos);
