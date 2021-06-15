@@ -1,3 +1,8 @@
+function addToggleEventListener() {
+    document.getElementById("toggle-months").addEventListener("click", toggleMonths);
+    document.getElementById("toggle-years").addEventListener("click", toggleYears);
+}
+
 const months = ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December"];
 const startYear = 2015;
 const endYear = 2025;
@@ -6,13 +11,13 @@ let month = 0;
 let dates = [];
 
 function loadMonths() {
-    for (var i = 0; i < months.length; i++) {
-        var monthDiv = document.createElement("div");
+    for (let i = 0; i < months.length; i++) {
+        let monthDiv = document.createElement("div");
         monthDiv.innerHTML = months[i];
         monthDiv.classList.add("dropdown-item");
 
         monthDiv.onclick = (function() {
-            var selectedMonth = i;
+            const selectedMonth = i;
             return function() {
                 month = selectedMonth;
                 document.getElementById("currentMonth").innerHTML = months[month];
@@ -28,13 +33,13 @@ function loadMonths() {
 function loadYears() {
     document.getElementById("years").innerHTML = "";
 
-    for (var i = startYear; i <= endYear; i++) {
-        var yearDiv = document.createElement("div");
+    for (let i = startYear; i <= endYear; i++) {
+        let yearDiv = document.createElement("div");
         yearDiv.innerHTML = i;
         yearDiv.classList.add("dropdown-item");
 
         yearDiv.onclick = (function() {
-            var selectedYear = i;
+            let selectedYear = i;
             return function() {
                 year = selectedYear;
                 document.getElementById("currentYear").innerHTML = year;
@@ -47,54 +52,35 @@ function loadYears() {
     }
 }
 
-function toggleMonths() {
-    var monthList = document.getElementById("months");
-    if (monthList.style.display === "none") {
-        monthList.style.display = "block";
-    } else {
-        monthList.style.display = "none";
-    }
-}
-
-function toggleYears() {
-    var yearList = document.getElementById("years");
-    if (yearList.style.display === "none") {
-        yearList.style.display = "block";
-    } else {
-        yearList.style.display = "none";
-    }
-}
-
 function loadDays() {
     document.getElementById("calDays").innerHTML = "";
 
-    var mockDate = new Date(year, month, 0);
-    var totalDays = daysInChosenMonth(month, year);
-    var dayofweek = mockDate.getDay(); // find where to start calendar day of week
+    const mockDate = new Date(year, month, 0);
+    const totalDays = daysInChosenMonth(month, year);
+    const dayofweek = mockDate.getDay(); // find where to start calendar day of week
 
-    for (var i = 0; i <= dayofweek; i++) {
-        var dayDiv = document.createElement("div");
+    for (let i = 0; i <= dayofweek; i++) {
+        let dayDiv = document.createElement("div");
         dayDiv.classList.add("empty");
         dayDiv.classList.add("day");
         document.getElementById("calDays").appendChild(dayDiv);
     }
 
-    for (var i = 0; i < totalDays; i++) {
-        var dayNumber = i + 1;
-        var dayDiv = document.createElement("div");
+    for (let i = 0; i < totalDays; i++) {
+        const dayNumber = i + 1;
+        let dayDiv = document.createElement("div");
 
         const options = {
             year: "numeric",
             month: "numeric",
             day: "numeric",
         };
-        var dateIdPart = new Date(year + "-" + (month + 1) + "-" + (i + 1)).toLocaleString("se-SE", options);
-        var dateIdPartString = String(dateIdPart);
-        let dateTest = new Date(dateIdPart);
-        // console.log(dateTest);
-        dates.push(dateTest);
+        const dateIdPart = new Date(year + "-" + (month + 1) + "-" + (i + 1)).toLocaleString("se-SE", options);
+        const dateIdPartString = String(dateIdPart);
+        const dateId = new Date(dateIdPart);
+
+        dates.push(dateId);
         dayDiv.id = dateIdPartString;
-        // dayDiv.id = year + "-" + (month + 1) + "-" + (i + 1); <-- Keep if refactored solution above breaks anything
         dayDiv.className = "day";
         dayDiv.classList.add("calendar-day");
         dayDiv.innerHTML = dayNumber;
@@ -102,30 +88,40 @@ function loadDays() {
         document.getElementById("calDays").appendChild(dayDiv);
     }
 
-    var clear = document.createElement("div");
+    let clear = document.createElement("div");
     clear.className = "clear";
     document.getElementById("calDays").appendChild(clear);
     todoCountForDate();
+    setELToAllDays();
+}
+
+//For select month dropdown list
+function toggleMonths() {
+    let monthList = document.getElementById("months");
+    if (monthList.style.display === "none" || monthList.style.display === "") {
+        monthList.style.display = "block";
+    } else {
+        monthList.style.display = "none";
+    }
+}
+
+//For select year dropdown list
+function toggleYears() {
+    let yearList = document.getElementById("years");
+    if (yearList.style.display === "none" || yearList.style.display === "") {
+        yearList.style.display = "block";
+    } else {
+        yearList.style.display = "none";
+    }
 }
 
 function daysInChosenMonth(month, year) {
-    var date = new Date(year, month + 1, 0);
+    const date = new Date(year, month + 1, 0);
     return date.getDate();
 }
 
-// window.addEventListener('load', function() {
-//     var date = new Date();
-//     month = date.getMonth();
-//     year = date.getFullYear();
-//     document.getElementById("currentMonth").innerHTML = months[month];
-//     document.getElementById("currentYear").innerHTML = year;
-//     loadMonths();
-//     loadYears();
-//     loadDays();
-// });
-
-function setCurrYearMonth(){
-    var date = new Date();
+function setCurrYearMonth() {
+    const date = new Date();
     month = date.getMonth();
     year = date.getFullYear();
     document.getElementById("currentMonth").innerHTML = months[month];
