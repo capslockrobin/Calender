@@ -128,8 +128,6 @@ function filterListBasedOnDate() {
         }
     });
 
-    console.log(dayTodos);
-
     dayTodos.sort((a, b) => {
         let aString = a.start.replace(':', '.');
         let bString = b.start.replace(':', '.');
@@ -145,8 +143,6 @@ function filterListBasedOnDate() {
         }
         return 0;
     });
-
-    console.log(dayTodos);
 
     let oldDayTodos = document.getElementById("todo-list-pop");
     oldDayTodos.textContent = "";
@@ -219,22 +215,19 @@ function deleteTodo(event) {
 }
 
 function todoCountForDate() {
-
-
     const options2 = {
         year: "numeric",
         month: "numeric",
         day: "numeric",
     };
-
         //removing old elements to recount
        todos.forEach(x => {
         dates.forEach(y => {
               let todoDate = new Date(x.dateOf);
             if(todoDate.toDateString() == y.toDateString())
             {
-                let random = new Date(y).toLocaleString("se-SE", options2);
-                let thisDay = document.getElementById(random);
+                let dateId = new Date(y).toLocaleString("se-SE", options2);
+                let thisDay = document.getElementById(dateId);
                 if(!thisDay){
                     return;
                 }
@@ -246,8 +239,6 @@ function todoCountForDate() {
             }
         })
     }) 
-
-    
     //adding 
     todos.forEach(x => {
         dates.forEach(y => {
@@ -256,28 +247,24 @@ function todoCountForDate() {
             {
                 let result = todos.filter((x) => new Date(x.dateOf).toDateString() == y.toDateString());
 
-                let random = new Date(y).toLocaleString("se-SE", options2);
-                let thisDay = document.getElementById(random);
-                
+                let dateId = new Date(y).toLocaleString("se-SE", options2);
+                let thisDay = document.getElementById(dateId);   
                 if(!thisDay){
                     return;
                 }
 
                 if(!thisDay.classList.contains("has-todos")){
-
-                    let test = document.createElement("p");
-                    test.className = "todo-count";
-                    test.innerText = "";
-                    test.innerText = result.length;
+                    let todoCount = document.createElement("p");
+                    todoCount.className = "todo-count";
+                    todoCount.innerText = "";
+                    todoCount.innerText = result.length;
                     thisDay.classList.add("has-todos");
-                    thisDay.appendChild(test);
+                    thisDay.appendChild(todoCount);
                 }  
             }
         })
     }) 
 }
-
-
 
 function edditTodo(event) {
     console.log("najs");
