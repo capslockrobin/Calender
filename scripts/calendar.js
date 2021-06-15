@@ -47,24 +47,6 @@ function loadYears() {
     }
 }
 
-function toggleMonths() {
-    let monthList = document.getElementById("months");
-    if (monthList.style.display === "none") {
-        monthList.style.display = "block";
-    } else {
-        monthList.style.display = "none";
-    }
-}
-
-function toggleYears() {
-    let yearList = document.getElementById("years");
-    if (yearList.style.display === "none") {
-        yearList.style.display = "block";
-    } else {
-        yearList.style.display = "none";
-    }
-}
-
 function loadDays() {
     document.getElementById("calDays").innerHTML = "";
 
@@ -105,6 +87,26 @@ function loadDays() {
     clear.className = "clear";
     document.getElementById("calDays").appendChild(clear);
     todoCountForDate();
+}
+
+//For select month dropdown list
+function toggleMonths() {
+    let monthList = document.getElementById("months");
+    if (monthList.style.display === "none") {
+        monthList.style.display = "block";
+    } else {
+        monthList.style.display = "none";
+    }
+}
+
+//For select year dropdown list
+function toggleYears() {
+    let yearList = document.getElementById("years");
+    if (yearList.style.display === "none") {
+        yearList.style.display = "block";
+    } else {
+        yearList.style.display = "none";
+    }
 }
 
 function daysInChosenMonth(month, year) {
