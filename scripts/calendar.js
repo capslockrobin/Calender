@@ -105,6 +105,7 @@ function loadDays() {
     var clear = document.createElement("div");
     clear.className = "clear";
     document.getElementById("calDays").appendChild(clear);
+    todoCountForDate();
 }
 
 function daysInChosenMonth(month, year) {
@@ -112,13 +113,21 @@ function daysInChosenMonth(month, year) {
     return date.getDate();
 }
 
-window.addEventListener('load', function() {
+// window.addEventListener('load', function() {
+//     var date = new Date();
+//     month = date.getMonth();
+//     year = date.getFullYear();
+//     document.getElementById("currentMonth").innerHTML = months[month];
+//     document.getElementById("currentYear").innerHTML = year;
+//     loadMonths();
+//     loadYears();
+//     loadDays();
+// });
+
+function setCurrYearMonth(){
     var date = new Date();
     month = date.getMonth();
     year = date.getFullYear();
     document.getElementById("currentMonth").innerHTML = months[month];
     document.getElementById("currentYear").innerHTML = year;
-    loadMonths();
-    loadYears();
-    loadDays();
-});
+}

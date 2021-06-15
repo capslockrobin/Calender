@@ -24,9 +24,7 @@ function processFormData() {
         filterListBasedOnDate();
         toggleForm();
         saveToLocalStorage(todos);
-         todoCountForDate();
-
-
+        todoCountForDate();
     }
 }
 
@@ -60,22 +58,9 @@ function validateForm() {
 let dayTodos;
 let todos = [];
 
-
-
 document.addEventListener('click', dateNowOnClick);
 let date = new Date();
 let date2 = date;
-
-window.onload = function() {
-    date = new Date();
-    dateNow = date;
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById("tasklist-date").innerText = date.toLocaleString("se-SE", options).toUpperCase();
-    dateNowOnClick();
-    initTodos();
-    filterListBasedOnDate();
-    todoCountForDate();
-}
 
 function dateNowOnClick() {
     document.getElementById("calDays").onclick = function() {
@@ -100,6 +85,16 @@ function dateNowOnClick() {
         dateNow = date2;
         filterListBasedOnDate();
     }
+}
+
+function loadFirstDate(){
+    date = new Date();
+    dateNow = date;
+}
+
+function setTodoListHeaderDate(){
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById("tasklist-date").innerText = date.toLocaleString("se-SE", options).toUpperCase();
 }
 
 function filterListBasedOnDate() {
@@ -209,6 +204,7 @@ function deleteTodo(event) {
     todos.splice(index, 1);
     saveToLocalStorage(todos);
     filterListBasedOnDate();
+        
 }
 
 function todoCountForDate() {
@@ -228,12 +224,18 @@ function todoCountForDate() {
             {
                 let random = new Date(y).toLocaleString("se-SE", options2);
                 let thisDay = document.getElementById(random);
-                
+                console.log(random);
                 const elements = document.getElementsByClassName("todo-count");
 
                 while (elements.length > 0) elements[0].remove();
 
-                thisDay.classList.remove("has-todos");  
+                if(!thisDay){
+                    return;
+                }
+              
+                    thisDay.classList.remove("has-todos"); 
+                
+                 
             }
         })
     }) 
@@ -249,7 +251,10 @@ function todoCountForDate() {
 
                 let random = new Date(y).toLocaleString("se-SE", options2);
                 let thisDay = document.getElementById(random);
-                           
+                
+                if(!thisDay){
+                    return;
+                }
                 if(!thisDay.classList.contains("has-todos"))
                 {  
                     let test = document.createElement("p");

@@ -1,9 +1,9 @@
-window.addEventListener('load', main);
+// window.addEventListener('load', main);
 
-function main() {
-    setTodaysDate();
-    clockTime();
-}
+// function main() {
+//     setTodaysDate();
+//     clockTime();
+// }
 
 function setTodaysDate() {
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
