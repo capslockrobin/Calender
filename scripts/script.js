@@ -1,11 +1,11 @@
-window.addEventListener("load", main);
+// window.addEventListener("load", main);
 
-function main() {
-    let divs = document.querySelectorAll(".day");
-    divs.forEach((el) =>
-        el.addEventListener("click", activeDay));
-    setActiveDayOnLoad();
-}
+// function main() {
+//     let divs = document.querySelectorAll(".day");
+//     divs.forEach((el) =>
+//         el.addEventListener("click", activeDay));
+//     setActiveDayOnLoad();
+// }
 
 let id;
 let id2;
@@ -74,6 +74,13 @@ function setActiveDayOnLoad() {
         day: "numeric",
     };
     let todaysDate = new Date().toLocaleString("se-SE", options);
+    console.log(todaysDate);
     document.getElementById(todaysDate).classList.add("active-day");
     id = todaysDate;
+}
+
+function setELToAllDays(){
+    let days = document.querySelectorAll(".day");
+    days.forEach((el) =>
+        el.addEventListener("click", activeDay));
 }

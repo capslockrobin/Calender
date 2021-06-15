@@ -1,9 +1,9 @@
-window.addEventListener(
-    "load",
-    observeMonthAndYear,
-    setMonthAndYear,
-    // getHolidaysAPI
-);
+// window.addEventListener(
+//     "load",
+//     observeMonthAndYear,
+//     setMonthAndYear,
+//     // getHolidaysAPI
+// );
 
 function observeMonthAndYear() {
     var monthListener = document.getElementById("currentMonth");
