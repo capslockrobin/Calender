@@ -1,20 +1,23 @@
-let dateNow;
 
-function processFormData() {
+//Globale variables:
+let dateNow; //date set when change day
+let dayTodos = []; //the specific date todos
+let todos = []; //all todos from local storage
+let idEdditTodo; //save id when you click on eddit
+/**
+ * 
+ * @param {Event} event 
+ */
+function processFormData(event) {
+    event.preventDefault();
 
-    if (validateForm()) {
-        let todo = document.getElementById('todo');
-        let newTodo = todo.value;
-        let start = document.getElementById('start');
-        let newStart = start.value;
-        let end = document.getElementById('end');
-        let newEnd = end.value;
+    if (validateForm(event)) {
 
         let newT = {
             Id: todos.length,
-            todo: newTodo,
-            start: newStart,
-            end: newEnd,
+            todo: event.target.todo.value,
+            start: event.target.start.value,
+            end: event.target.end.value,
             dateOf: dateNow,
         }
 
@@ -28,10 +31,23 @@ function processFormData() {
     }
 }
 
-function toggleForm() {
-    var frm_element = document.getElementById('add-todo');
+function addFromEventListeners(){
+    const addForm = document.getElementById("add-todo");
+    addForm.addEventListener("submit", processFormData);
 
-    var vis = frm_element.style;
+    const edditForm = document.getElementById("eddit-todo-form");
+    edditForm.addEventListener("submit", processEdditFormData)
+}
+
+function addButtomToggleEventListener(){
+    const toggleButtom = document.getElementById("add-Buttom-Toogle");
+    toggleButtom.addEventListener("click", toggleForm);
+}
+
+
+function toggleForm() {
+    const frm_element = document.getElementById('add-todo');
+    let vis = frm_element.style;
 
     if (vis.display == '' || vis.display == 'none') {
         vis.display = 'block';
@@ -40,10 +56,15 @@ function toggleForm() {
     }
 }
 
-function validateForm() {
-    var todo = document.forms["add-todo"]["todo"].value;
-    let start = document.forms["add-todo"]["start"].value;
-    let end = document.forms["add-todo"]["end"].value;
+/**
+ * 
+ * @param {Event} event 
+ * @returns 
+ */
+function validateForm(event) {
+    let todo = event.target.todo.value;
+    let start = event.target.start.value;
+    let end = event.target.end.value;
     if (todo == "" || start == "" || end == "") {
         alert("Fyll i alla värden i din todo!");
         return false;
@@ -55,34 +76,29 @@ function validateForm() {
     }
 }
 
-let dayTodos;
-let todos = [];
-
-document.addEventListener('click', dateNowOnClick);
-let date = new Date();
-let date2 = date;
+function addDateNowEventListener(){
+    document.addEventListener('click', dateNowOnClick);
+}
 
 function dateNowOnClick() {
     document.getElementById("calDays").onclick = function() {
-        var e = window.event;
+        let e = window.event;
         date = new Date(e.toElement.id);
-        date2 = (date == "Invalid Date" || date == "undefined") ? date2 : date;
+        dateNow = (date == "Invalid Date" || date == "undefined") ? dateNow : date;
 
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById("tasklist-date").innerText = date2.toLocaleString("se-SE", options).toUpperCase();
+        document.getElementById("tasklist-date").innerText = dateNow.toLocaleString("se-SE", options).toUpperCase();
 
         if (e.target.childElementCount > 0) {
             document.getElementById("tasklist-date").innerText =
-                date2.toLocaleString("se-SE", options).toUpperCase() + " " + e.target.children[0].innerText;
+                dateNow.toLocaleString("se-SE", options).toUpperCase() + " " + e.target.children[0].innerText;
         }
 
         if (!dateNow) {
             filterListBasedOnDate();
-            dateNow = date2;
             return;
         }
 
-        dateNow = date2;
         filterListBasedOnDate();
     }
 }
@@ -135,33 +151,28 @@ function filterListBasedOnDate() {
     let oldDayTodos = document.getElementById("todo-list-pop");
     oldDayTodos.textContent = "";
 
-    for (var i = 0; i < dayTodos.length; i++) {
-        // var li = document.createElement("li");
+    for (let i = 0; i < dayTodos.length; i++) {
         if (typeof dayTodos[i] !== 'undefined') {
             //Create List Item
-            var listItem = document.createElement("li");
-            var divStartEnd = document.createElement("div");
-            var divChangeDeleteBtn = document.createElement("div");
-            //label
-            var divTodo = document.createElement("div");
-            var label = document.createElement("label");
-            var startTime = document.createElement("span");
-            var endTime = document.createElement("span");
-            //input (text)
-            var editInput = document.createElement("input"); // text
+            let listItem = document.createElement("li");
+            let divStartEnd = document.createElement("div");
+            let divChangeDeleteBtn = document.createElement("div");
+
+            let divTodo = document.createElement("div");
+            let label = document.createElement("label");
+            let startTime = document.createElement("span");
+            let endTime = document.createElement("span");           
 
             //button.edit
-            var editButton = document.createElement("button");
+            let editButton = document.createElement("button");
             editButton.setAttribute("id", dayTodos[i].Id);
             editButton.addEventListener("click", edditTodo, true);
+
             //button.delete
-            var deleteButton = document.createElement("button");
+            let deleteButton = document.createElement("button");
             deleteButton.setAttribute("id", dayTodos[i].Id);
             deleteButton.addEventListener("click", deleteTodo, true);
 
-            //Each element needs modifying
-
-            // editInput.type = "text";
             divStartEnd.className = "divStartEnd";
             divChangeDeleteBtn.className = "divChangeDeleteBtn";
 
@@ -198,13 +209,13 @@ function filterListBasedOnDate() {
 
 function deleteTodo(event) {
     let dayId = event.target.attributes.id.textContent;
-    var item = todos.find(x => x.Id == dayId);
-    var index = todos.findIndex(element => element == item);
+    let item = todos.find(x => x.Id == dayId);
+    let index = todos.findIndex(element => element == item);
 
     todos.splice(index, 1);
     saveToLocalStorage(todos);
     filterListBasedOnDate();
-        
+    todoCountForDate();
 }
 
 function todoCountForDate() {
@@ -224,18 +235,14 @@ function todoCountForDate() {
             {
                 let random = new Date(y).toLocaleString("se-SE", options2);
                 let thisDay = document.getElementById(random);
-                console.log(random);
-                const elements = document.getElementsByClassName("todo-count");
-
-                while (elements.length > 0) elements[0].remove();
-
                 if(!thisDay){
                     return;
                 }
-              
-                    thisDay.classList.remove("has-todos"); 
-                
-                 
+
+                const elements = document.getElementsByClassName("todo-count");
+                while (elements.length > 0) elements[0].remove();
+
+                thisDay.classList.remove("has-todos");    
             }
         })
     }) 
@@ -255,8 +262,9 @@ function todoCountForDate() {
                 if(!thisDay){
                     return;
                 }
-                if(!thisDay.classList.contains("has-todos"))
-                {  
+
+                if(!thisDay.classList.contains("has-todos")){
+
                     let test = document.createElement("p");
                     test.className = "todo-count";
                     test.innerText = "";
@@ -269,21 +277,18 @@ function todoCountForDate() {
     }) 
 }
 
-let idEdditTodo;
-let indexToChange;
+
 
 function edditTodo(event) {
     console.log("najs");
     toggleEdditForm();
     idEdditTodo = event.target.attributes.id.textContent;
-    var item = todos.find(x => x.Id == idEdditTodo);
-    indexToChange = todos.findIndex(element => element == item);
 }
 
 function toggleEdditForm() {
-    var frm_element = document.getElementById('eddit-todo-form');
+    let frm_element = document.getElementById('eddit-todo-form');
 
-    var vis = frm_element.style;
+    let vis = frm_element.style;
 
     if (vis.display == '' || vis.display == 'none') {
         vis.display = 'block';
@@ -292,35 +297,41 @@ function toggleEdditForm() {
     }
 }
 
-function processEdditFormData() {
-    if (validateEditForm()) {
-        let todo = document.getElementById("eddit-todo");
-        let newTodo = todo.value;
-        let start = document.getElementById("eddit-start");
-        let newStart = start.value;
-        let end = document.getElementById("eddit-end");
-        let newEnd = end.value;
+/**
+ * 
+ * @param {Event} event 
+ */
+function processEdditFormData(event) {
+    event.preventDefault();
+    console.log(event.target);
+    if (validateEditForm(event)) {
+        const newTodo = event.target.edditTodo.value;
+        const newStart = event.target.edditStart.value;
+        const newEnd = event.target.edditEnd.value;
 
         todos.forEach(element => {
-            console.log("editing" + element.Id);
             if (idEdditTodo == element.Id) {
                 element.todo = newTodo;
                 element.start = newStart;
                 element.end = newEnd;
             }
         });
-        console.log(todos);
+   
         filterListBasedOnDate();
         toggleEdditForm();
-
         saveToLocalStorage(todos);
     }
 }
 
-function validateEditForm() {
-    var todo = document.forms["eddit-todo-form"]["eddit-todo"].value;
-    let start = document.forms["eddit-todo-form"]["eddit-start"].value;
-    let end = document.forms["eddit-todo-form"]["eddit-end"].value;
+/**
+ * 
+ * @param {Event} event 
+ * @returns 
+ */
+function validateEditForm(event) {
+    const todo = event.target.edditTodo.value;
+    const start = event.target.edditStart.value;
+    const end = event.target.edditEnd.value;
     if (todo == "" || start == "" || end == "") {
         alert("Fyll i alla värden i din todo!");
         return false;
@@ -331,7 +342,6 @@ function validateEditForm() {
         return true;
     }
 }
-
 
 function saveToLocalStorage(todos) {
     localStorage.setItem("Todo", JSON.stringify(todos))
