@@ -1,3 +1,8 @@
+function addToggleEventListener() {
+    document.getElementById("toggle-months").addEventListener("click", toggleMonths);
+    document.getElementById("toggle-years").addEventListener("click", toggleYears);
+}
+
 const months = ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December"];
 const startYear = 2015;
 const endYear = 2025;
@@ -92,7 +97,7 @@ function loadDays() {
 //For select month dropdown list
 function toggleMonths() {
     let monthList = document.getElementById("months");
-    if (monthList.style.display === "none") {
+    if (monthList.style.display === "none" || monthList.style.display === "") {
         monthList.style.display = "block";
     } else {
         monthList.style.display = "none";
@@ -102,7 +107,7 @@ function toggleMonths() {
 //For select year dropdown list
 function toggleYears() {
     let yearList = document.getElementById("years");
-    if (yearList.style.display === "none") {
+    if (yearList.style.display === "none" || yearList.style.display === "") {
         yearList.style.display = "block";
     } else {
         yearList.style.display = "none";

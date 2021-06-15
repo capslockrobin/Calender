@@ -1,48 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="stylesheet" href="styles/calendar.css" />
     <link rel="stylesheet" href="styles/todo.css" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
     <script src="scripts/calendar.js"></script>
     <script src="scripts/script.js"></script>
     <script src="scripts/clockDate.js"></script>
     <script src="scripts/todo.js"></script>
     <script src="scripts/holidayAPI.js"></script>
     <script defer src="./scripts/main.js"></script>
-    <script
-      defer
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js "
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo "
-      crossorigin="anonymous "
-    ></script>
-    <script
-      defer
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js "
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 "
-      crossorigin="anonymous "
-    ></script>
-    <script
-      defer
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js "
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM "
-      crossorigin="anonymous "
-    ></script>
+    <script defer src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
+    <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
 
     <title>Document</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <!-- <header>
         <div style="background-color: green">
             <div class="row no-gutters justify-content-center">
@@ -52,42 +33,36 @@
     </header> -->
 
     <main style="max-height: 100vh; min-height: 100vh">
-      <div class="row no-gutters">
-        <aside class="col-3 aside">
-          <div class="row no-gutters justify-content-around align-items-center">
-            <img
-              src="https://www.pngrepo.com/png/29731/180/sunny.png"
-              style="width: 30%"
-              alt=""
-            />
-            <h5 id="todaysDate"></h5>
-          </div>
-          <div class="row no-gutters">
-            <div class="col-4"></div>
-            <div class="col-4"></div>
-            <div class="col-4">
-              <h5 id="clock"></h5>
-            </div>
-          </div>
+        <div class="row no-gutters">
+            <aside class="col-3 aside">
+                <div class="row no-gutters justify-content-around align-items-center">
+                    <img src="https://www.pngrepo.com/png/29731/180/sunny.png" style="width: 30%" alt="" />
+                    <h5 id="todaysDate"></h5>
+                </div>
+                <div class="row no-gutters">
+                    <div class="col-4"></div>
+                    <div class="col-4"></div>
+                    <div class="col-4">
+                        <h5 id="clock"></h5>
+                    </div>
+                </div>
 
-          <div class="bg-light border-right sidebar" id="sidebar-wrapper">
-            <ul class="list-group list-group-flush overflow-auto">
-              <div id="tasklist-date" class="sidebar-heading"></div>
-              <div class="section1">
-                <button type="button" class="addBtn" onclick="toggleForm()">
+                <div class="bg-light border-right sidebar" id="sidebar-wrapper">
+                    <ul class="list-group list-group-flush overflow-auto">
+                        <div id="tasklist-date" class="sidebar-heading"></div>
+                        <div class="section1">
+                            <button type="button" class="addBtn" onclick="toggleForm()">
                   Lägg till
                 </button>
-                <form class="display-form" name="add" id="add-todo">
-                  <div class="labelInput">
-                  <label
-                    >Todo:
+                            <form class="display-form" name="add" id="add-todo">
+                                <div class="labelInput">
+                                    <label>Todo:
                     <input type="text" name="todo" id="todo" placeholder="skriv din todo..." required />
                   </label>
-                  </div>
-                  <div class="divStartEnd2">
-                    <div class="divStartEnd3">
-                  <label
-                    >Startar:
+                                </div>
+                                <div class="divStartEnd2">
+                                    <div class="divStartEnd3">
+                                        <label>Startar:
                     <input
                     class="startTid"
                       type="time"
@@ -98,8 +73,7 @@
                       required
                     />
                   </label>
-                  <label
-                    >Slutar:
+                                        <label>Slutar:
                     <input
                     class="slutTid"
                       type="time"
@@ -110,29 +84,22 @@
                       required
                     />
                   </label>
-                  </div>
-                  <input
-                    class="submitBtn"
-                    type="button"
-                    name="submit"
-                    value="Godkänn"
-                    onclick="processFormData()"
-                  />
-                  </div>
-                </form>
-              </div>
-              <div class="section2">
-                <h4>Schema för arbete/skola</h4>
-                <ul id="todo-list-pop"></ul>
-                <!-- injected from js -->
-                <form class="display-eddit-form" name="eddit" id="eddit-todo-form">
-                  <div class="edit-form">
-                     <label>Todo
+                                    </div>
+                                    <input class="submitBtn" type="button" name="submit" value="Godkänn" onclick="processFormData()" />
+                                </div>
+                            </form>
+                        </div>
+                        <div class="section2">
+                            <h4>Schema för arbete/skola</h4>
+                            <ul id="todo-list-pop"></ul>
+                            <!-- injected from js -->
+                            <form class="display-eddit-form" name="eddit" id="eddit-todo-form">
+                                <div class="edit-form">
+                                    <label>Todo
                         <input type="text" id="eddit-todo" placeholder="ändra din todo...">
                     </label>
-                    <div class="start-end">
-                     <label 
-                    >Startar:
+                                    <div class="start-end">
+                                        <label>Startar:
                     <input
                     class="startTid"
                       type="time"
@@ -143,8 +110,7 @@
                       required
                     />
                   </label>
-                  <label
-                    >Slutar:
+                                        <label>Slutar:
                     <input
                     class="slutTid"
                       type="time"
@@ -155,53 +121,48 @@
                       required
                     />
                   </label>
-                  </div>
-                  <input
-                    class="submitBtn"
-                    type="button"
-                    name="submit"
-                    value="Godkänn"
-                    onclick="processEdditFormData();"
-                  />
-                  </div>
-                </form>
-            </ul>
-          </div>
-        </aside>
+                                    </div>
+                                    <input class="submitBtn" type="button" name="submit" value="Godkänn" onclick="processEdditFormData();" />
+                                </div>
+                            </form>
+                    </ul>
+                    </div>
+            </aside>
 
-        <div class="calendar col-9" id="calendar" style="height: 100%">
-          <div class="row no-gutters justify-content-around">
-            <div class="calendar-btn month-btn" onclick="toggleMonths()">
-              <span id="currentMonth"></span>
-              <div id="months" class="months dropdown"></div>
+            <div class="calendar col-9" id="calendar" style="height: 100%">
+                <div class="row no-gutters justify-content-around">
+                    <div class="calendar-btn month-btn" id="toggle-months">
+                        <span id="currentMonth"></span>
+                        <div id="months" class="months dropdown"></div>
+                    </div>
+
+                    <div class="calendar-btn year-btn" id="toggle-years">
+                        <span id="currentYear"></span>
+                        <div id="years" class="years dropdown"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+
+                <div class="calendar-dates">
+                    <div class="days">
+                        <div class="day label">SÖN</div>
+                        <div class="day label">MÅN</div>
+                        <div class="day label">TIS</div>
+                        <div class="day label">ONS</div>
+                        <div class="day label">TORS</div>
+                        <div class="day label">FRE</div>
+                        <div class="day label">LÖR</div>
+
+                        <div class="clear"></div>
+                    </div>
+
+                    <hr class="solid-divider" />
+
+                    <div id="calDays" class="days"></div>
+                </div>
             </div>
-
-            <div class="calendar-btn year-btn" onclick="toggleYears()">
-              <span id="currentYear"></span>
-              <div id="years" class="years dropdown"></div>
             </div>
-          </div>
-          <div class="clear"></div>
-
-          <div class="calendar-dates">
-            <div class="days">
-              <div class="day label">SÖN</div>
-              <div class="day label">MÅN</div>
-              <div class="day label">TIS</div>
-              <div class="day label">ONS</div>
-              <div class="day label">TORS</div>
-              <div class="day label">FRE</div>
-              <div class="day label">LÖR</div>
-
-              <div class="clear"></div>
-            </div>
-
-            <hr class="solid-divider" />
-
-            <div id="calDays" class="days"></div>
-          </div>
-        </div>
-      </div>
     </main>
-  </body>
+</body>
+
 </html>
