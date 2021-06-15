@@ -1,32 +1,29 @@
-// window.addEventListener(
-//     "load",
-//     observeMonthAndYear,
-//     setMonthAndYear,
-//     // getHolidaysAPI
-// );
+//Makes API call to fetch Swedish holidays
 
+//Observes currentMonth and currentYear to detect
+//changes in their innerText and fires setMonthAndYear if so
 function observeMonthAndYear() {
-    var monthListener = document.getElementById("currentMonth");
-    var yearListener = document.getElementById("currentYear");
+    const monthListener = document.getElementById("currentMonth");
+    const yearListener = document.getElementById("currentYear");
 
-    var MutationObserver =
-        window.MutationObserver ||
-        window.WebKitMutationObserver ||
-        window.MozMutationObserver;
+    const MutationObserver = window.MutationObserver;
 
-    var monthObserver = new MutationObserver(setMonthAndYear);
+    const monthObserver = new MutationObserver(setMonthAndYear);
     monthObserver.observe(monthListener, {
         childList: true,
     });
 
-    var yearObserver = new MutationObserver(setMonthAndYear);
+    const yearObserver = new MutationObserver(setMonthAndYear);
     yearObserver.observe(yearListener, {
         childList: true,
     });
 }
 
+//Gets the currentMonth and currentYear innerText values
+//from the page to dynamically populate the month and year
+//variables for the getHolidaysAPI function
 function setMonthAndYear() {
-    let monthsList = [
+    const monthsList = [
         "Januari",
         "Februari",
         "Mars",
@@ -41,13 +38,10 @@ function setMonthAndYear() {
         "December",
     ];
 
-    let monthText = document.getElementById("currentMonth").innerText;
-    let month = monthsList.indexOf(monthText) + 1;
-    let year = document.getElementById("currentYear").innerText;
+    const monthText = document.getElementById("currentMonth").innerText;
+    const month = monthsList.indexOf(monthText) + 1;
+    const year = document.getElementById("currentYear").innerText;
 
-    // console.log(monthText);
-    // console.log(month);
-    // console.log(year);
     getHolidaysAPI(month, year);
 }
 
@@ -56,9 +50,13 @@ function getHolidaysAPI(month, year) {
     const url = "https://sholiday.faboul.se/dagar/v2.1/" + year + "/" + month;
 
     async function getHolidays() {
-        let response = await fetch(url);
-        let data = await response.json();
-        return data;
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error(error)
+        }
     }
 
     getHolidays().then((response) => {
@@ -69,18 +67,15 @@ function getHolidaysAPI(month, year) {
         });
 
         for (let i = 0; i < holidays.length; i++) {
-            // console.log(document.getElementById(holidays[i].datum))
-            // if (document.getElementById(holidays[i].datum).innerText.length > 2) {
-            //     return;
-            // }
             if (document.getElementById(holidays[i].datum).classList.contains("has-holidays")) {
                 return;
             }
 
             document.getElementById(document.getElementById(holidays[i].datum).classList.add("has-holidays"));
-            document.getElementById(holidays[i].datum).innerHTML +=
-                "<p>" + holidays[i].helgdag + "</p>";
+            document.getElementById(holidays[i].datum).innerHTML += "<p>" + holidays[i].helgdag + "</p>";
         }
         return holidays;
+    }).catch((response) => {
+        console.error(response);
     });
 }
