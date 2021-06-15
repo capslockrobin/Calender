@@ -4,6 +4,8 @@ let dateNow; //date set when change day
 let dayTodos = []; //the specific date todos
 let todos = []; //all todos from local storage
 let idEdditTodo; //save id when you click on eddit
+let date;
+let date2;
 /**
  * 
  * @param {Event} event 
@@ -84,18 +86,19 @@ function dateNowOnClick() {
     document.getElementById("calDays").onclick = function() {
         let e = window.event;
         date = new Date(e.toElement.id);
-        dateNow = (date == "Invalid Date" || date == "undefined") ? dateNow : date;
+        date2 = (date == "Invalid Date" || date == "undefined") ? date2 : date;
 
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById("tasklist-date").innerText = dateNow.toLocaleString("se-SE", options).toUpperCase();
+        document.getElementById("tasklist-date").innerText = date2.toLocaleString("se-SE", options).toUpperCase();
 
         if (e.target.childElementCount > 0) {
             document.getElementById("tasklist-date").innerText =
-                dateNow.toLocaleString("se-SE", options).toUpperCase() + " " + e.target.children[0].innerText;
+                date2.toLocaleString("se-SE", options).toUpperCase() + " " + e.target.children[0].innerText;
         }
 
         if (!dateNow) {
             filterListBasedOnDate();
+            dateNow = date2;
             return;
         }
 
@@ -105,7 +108,7 @@ function dateNowOnClick() {
 
 function loadFirstDate(){
     date = new Date();
-    dateNow = date;
+    date2 = date;
 }
 
 function setTodoListHeaderDate(){
