@@ -8,7 +8,7 @@ function main() {
     loadDays();
     addToggleEventListener();
 
-    //script.js
+    //activeDay.js
     setELToAllDays();
     setActiveDayOnLoad();
 

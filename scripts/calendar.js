@@ -92,6 +92,7 @@ function loadDays() {
     clear.className = "clear";
     document.getElementById("calDays").appendChild(clear);
     todoCountForDate();
+    setELToAllDays();
 }
 
 //For select month dropdown list
