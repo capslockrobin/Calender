@@ -74,7 +74,7 @@
             <ul class="list-group list-group-flush overflow-auto">
               <div id="tasklist-date" class="sidebar-heading"></div>
               <div class="section1">
-                <button type="button" class="addBtn" onclick="toggleForm()">
+                <button type="button" id="add-Buttom-Toogle" class="addBtn">
                   Lägg till
                 </button>
                 <form class="display-form" name="add" id="add-todo">
@@ -113,10 +113,9 @@
                   </div>
                   <input
                     class="submitBtn"
-                    type="button"
+                    type="submit"
                     name="submit"
                     value="Godkänn"
-                    onclick="processFormData()"
                   />
                   </div>
                 </form>
@@ -128,7 +127,7 @@
                 <form class="display-eddit-form" name="eddit" id="eddit-todo-form">
                   <div class="edit-form">
                      <label>Todo
-                        <input type="text" id="eddit-todo" placeholder="ändra din todo...">
+                        <input type="text" id="edditTodo" placeholder="ändra din todo...">
                     </label>
                     <div class="start-end">
                      <label 
@@ -137,7 +136,7 @@
                     class="startTid"
                       type="time"
                       name="startar"
-                      id="eddit-start"
+                      id="edditStart"
                       min="00:00"
                       max="24:00"
                       required
@@ -149,7 +148,7 @@
                     class="slutTid"
                       type="time"
                       name="Slutar"
-                      id="eddit-end"
+                      id="edditEnd"
                       min="00:00"
                       max="24:00"
                       required
@@ -158,10 +157,9 @@
                   </div>
                   <input
                     class="submitBtn"
-                    type="button"
+                    type="submit"
                     name="submit"
                     value="Godkänn"
-                    onclick="processEdditFormData();"
                   />
                   </div>
                 </form>

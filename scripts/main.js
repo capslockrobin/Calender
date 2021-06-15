@@ -22,6 +22,9 @@ function main() {
     initTodos();
     filterListBasedOnDate();
     todoCountForDate();
+    addFromEventListeners();
+    addButtomToggleEventListener();
+    addDateNowEventListener();
 
     //holiday js
     observeMonthAndYear();
