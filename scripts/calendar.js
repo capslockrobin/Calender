@@ -112,21 +112,6 @@ function daysInChosenMonth(month, year) {
     return date.getDate();
 }
 
-/*------------------------------------------------------------------
-Split out into setCurrYearMonth function and moved to main 
--------------------------------------------------------------------
-window.addEventListener('load', function() {
-    const date = new Date();
-    month = date.getMonth();
-    year = date.getFullYear();
-    document.getElementById("currentMonth").innerHTML = months[month];
-    document.getElementById("currentYear").innerHTML = year;
-    loadMonths();
-    loadYears();
-    loadDays();
-});
-*/
-
 function setCurrYearMonth() {
     const date = new Date();
     month = date.getMonth();
