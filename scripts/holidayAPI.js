@@ -72,7 +72,7 @@ function getHolidaysAPI(month, year) {
             }
 
             document.getElementById(document.getElementById(holidays[i].datum).classList.add("has-holidays"));
-            document.getElementById(holidays[i].datum).innerHTML += "<p>" + holidays[i].helgdag + "</p>";
+            document.getElementById(holidays[i].datum).innerHTML += "<p class='holiday'>" + holidays[i].helgdag + "</p>";
         }
         return holidays;
     }).catch((response) => {
