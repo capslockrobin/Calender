@@ -132,4 +132,3 @@ function setCurrYearMonth() {
     document.getElementById("currentMonth").innerHTML = months[month];
     document.getElementById("currentYear").innerHTML = year;
 }
-

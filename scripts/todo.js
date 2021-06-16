@@ -348,16 +348,16 @@ function initTodos() {
     todos = JSON.parse(todoString || "[]");
 }
 
-function nextDayButtom(){
+function nextDayButtom() {
     dateNow.setDate(dateNow.getDate() + 1);
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     document.getElementById("tasklist-date").innerText = dateNow.toLocaleString("se-SE", options).toUpperCase();
-    
+
     let activeHtml = document.getElementsByClassName("active-day");
     let oldActiveDay
     for (let i = 0, n = activeHtml.length; i < n; ++i) {
         oldActiveDay = activeHtml[i].id;
-        
+
     }
     console.log(oldActiveDay)
 
@@ -367,16 +367,16 @@ function nextDayButtom(){
     filterListBasedOnDate();
 }
 
-function lastDayButtom(){
+function lastDayButtom() {
     dateNow.setDate(dateNow.getDate() - 1);
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     document.getElementById("tasklist-date").innerText = dateNow.toLocaleString("se-SE", options).toUpperCase();
-    
+
     let activeHtml = document.getElementsByClassName("active-day");
     let oldActiveDay
     for (let i = 0, n = activeHtml.length; i < n; ++i) {
         oldActiveDay = activeHtml[i].id;
-        
+
     }
     console.log(oldActiveDay)
 
