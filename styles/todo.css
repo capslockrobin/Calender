@@ -115,6 +115,7 @@ li>.delete:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 20%;
 }
 
 .logo-clock {
@@ -126,6 +127,14 @@ li>.delete:hover {
 
 .logo {
     margin-top: 10px;
+}
+
+.date {
+    color: white;
+}
+
+.clock {
+    color: white;
 }
 
 
@@ -179,7 +188,10 @@ li>.delete:hover {
 -------------------------------------------------------------------*/
 
 .sidebar {
-    margin-top: 13px;
+    /* margin-top: 13px; */
+    height: 80%;
+    overflow-y: auto;
+    background-color: rgb(77, 78, 78);
 }
 
 
