@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="stylesheet" href="styles/calendar.css" />
     <link rel="stylesheet" href="styles/todo.css" />
+    <link rel="stylesheet" href="styles/scrollbar.css" />
     <!-- Font-Awesome -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
@@ -41,7 +42,8 @@
                 <!-- Start logo, date, clock -->
                 <div class="logo-clock-todo">
                     <div class="logo">
-                        <img src="https://www.pngrepo.com/png/29731/180/sunny.png" style="width: 30%" alt="" />
+                        <!-- <img src="https://www.pngrepo.com/png/29731/180/sunny.png" style="width: 30%" alt="" /> -->
+                        <h1 class="foo-logo">{ FOOOO }</h1>
                         <h5 class="date" id="todaysDate"></h5>
                     </div>
                     <div class="clock">
@@ -72,13 +74,13 @@
                         <!-- Start section1 -->
                         <div class="section1">
                             <button type="button" id="add-Buttom-Toogle" class="addBtn">
-                  Lägg till
+                <i class="fa fa-plus" aria-hidden="true"></i>
                 </button>
 
                             <!-- Start display-form -->
                             <form class="display-form" name="add" id="add-todo">
                                 <div class="labelInput">
-                                    <label>Todo:
+                                    <label class="label"><h6 class="h6">Todo:</h6>
                       <input
                         type="text"
                         name="todo"
@@ -90,7 +92,7 @@
                                 </div>
                                 <div class="divStartEnd2">
                                     <div class="divStartEnd3">
-                                        <label>Startar:
+                                        <label class="label"><h6 class="h6">Startar:</h6>
                         <input
                           class="startTid"
                           type="time"
@@ -101,7 +103,7 @@
                           required
                         />
                       </label>
-                                        <label>Slutar:
+                                        <label class="label"><h6 class="h6">Slutar:</h6>
                         <input
                           class="slutTid"
                           type="time"
@@ -121,14 +123,13 @@
                         <!-- End section1 -->
 
                         <div class="section2">
-                            <h4>Schema för arbete/skola</h4>
                             <ul id="todo-list-pop"></ul>
 
                             <!-- injected from js -->
                             <!-- Start edit-form -->
                             <form class="display-eddit-form" name="eddit" id="eddit-todo-form">
                                 <div class="edit-form">
-                                    <label>Todo
+                                    <label class="label"><h6 class="h6">Todo:</h6>
                       <input
                         type="text"
                         id="edditTodo"
@@ -136,7 +137,8 @@
                       />
                     </label>
                                     <div class="start-end">
-                                        <label>Startar:
+                        <label class="label">
+                            <h6 class="h6">Startar:</h6>
                         <input
                           class="startTid"
                           type="time"
@@ -147,7 +149,8 @@
                           required
                         />
                       </label>
-                                        <label>Slutar:
+                                <label class="label">
+                                    <h6 class="h6">Slutar:</h6>
                         <input
                           class="slutTid"
                           type="time"

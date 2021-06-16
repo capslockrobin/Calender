@@ -47,9 +47,9 @@
 } */
 
 .calendar .calendar-btn {
-    background-color: #1784c3;
+    background-color: rgb(255, 102, 0);
     border: 1px solid #105279;
-    color: white;
+    color: rgb(255, 255, 255);
     text-align: center;
     font-size: 14pt;
     padding: 5px 10px 5px 10px;
@@ -60,7 +60,7 @@
 }
 
 .calendar .calendar-btn:hover {
-    background-color: #105279;
+    background-color: rgb(255, 129, 45);
 }
 
 .calendar .calendar-dates .days .day {
@@ -102,7 +102,7 @@
 .calendar .calendar-dates .days .day.label {
     height: 40px;
     background-color: white;
-    color: rgb(240, 145, 21);
+    color: rgb(255, 102, 0);
     border: none;
     font-weight: bold;
 }
