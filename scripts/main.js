@@ -7,6 +7,7 @@ function main() {
     loadYears();
     loadDays();
     addToggleEventListener();
+    
 
     //activeDay.js
     setELToAllDays();
@@ -26,6 +27,7 @@ function main() {
     addFromEventListeners();
     addButtomToggleEventListener();
     addDateNowEventListener();
+    addChangeDayButtoms();
 
     //holiday js
     observeMonthAndYear();
