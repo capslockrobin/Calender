@@ -353,8 +353,16 @@ function nextDayButtom(){
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     document.getElementById("tasklist-date").innerText = dateNow.toLocaleString("se-SE", options).toUpperCase();
     
-    let foo = document.getElementsByClassName("active-day");
-    console.log(foo);
+    let activeHtml = document.getElementsByClassName("active-day");
+    let oldActiveDay
+    for (let i = 0, n = activeHtml.length; i < n; ++i) {
+        oldActiveDay = activeHtml[i].id;
+        
+    }
+    console.log(oldActiveDay)
+
+    document.getElementById(oldActiveDay).classList.remove("active-day");
+    document.getElementById(oldActiveDay).nextElementSibling.classList.add("active-day");
 
     filterListBasedOnDate();
 }
@@ -363,6 +371,17 @@ function lastDayButtom(){
     dateNow.setDate(dateNow.getDate() - 1);
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     document.getElementById("tasklist-date").innerText = dateNow.toLocaleString("se-SE", options).toUpperCase();
-     activeDay();
+    
+    let activeHtml = document.getElementsByClassName("active-day");
+    let oldActiveDay
+    for (let i = 0, n = activeHtml.length; i < n; ++i) {
+        oldActiveDay = activeHtml[i].id;
+        
+    }
+    console.log(oldActiveDay)
+
+    document.getElementById(oldActiveDay).classList.remove("active-day");
+    document.getElementById(oldActiveDay).previousElementSibling.classList.add("active-day");
+
     filterListBasedOnDate();
 }
