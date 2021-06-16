@@ -3,6 +3,7 @@ function addToggleEventListener() {
     document.getElementById("toggle-years").addEventListener("click", toggleYears);
 }
 
+
 const months = ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December"];
 const startYear = 2015;
 const endYear = 2025;
@@ -131,3 +132,4 @@ function setCurrYearMonth() {
     document.getElementById("currentMonth").innerHTML = months[month];
     document.getElementById("currentYear").innerHTML = year;
 }
+

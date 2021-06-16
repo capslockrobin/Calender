@@ -79,16 +79,16 @@
             </div>
 
             <!-- Start mobile month/year buttons -->
-            <div class="mobile-month-year-btns">
-              <div class="month-Btn">
-                <span>Month</span>
+            <!-- <div class="mobile-month-year-btns">
+              <div class="month-Btn" id="last-day">
+                <span>Last day</span>
                 <i class="fa fa-angle-down"></i>
               </div>
-              <div class="year-Btn">
-                <span>Year</span>
+              <div class="year-Btn" id="next-day">
+                <span>Next day</span>
                 <i class="fa fa-angle-down"></i>
               </div>
-            </div>
+            </div> -->
             <!-- End mobile month/year buttons -->
           </div>
           <!-- End logo, date, clock -->
@@ -96,8 +96,18 @@
           <!-- Start todo-section -->
           <div class="bg-light border-right sidebar" id="sidebar-wrapper">
             <ul class="list-group list-group-flush overflow-auto">
-              <div id="tasklist-date" class="sidebar-heading"></div>
-
+             
+            <div class="mobile-month-year-btns">
+              <div class="month-Btn hidden-for-bs" id="last-day">
+                <!-- <span>Last day</span> -->
+                <i class="fa fa-angle-left"></i>
+              </div>
+               <div id="tasklist-date" class="sidebar-heading"></div>
+              <div class="year-Btn hidden-for-bs" id="next-day">
+                <!-- <span>Next day</span> -->
+                <i class="fa fa-angle-right"></i>
+              </div>
+            </div>
               <!-- Start section1 -->
               <div class="section1">
                 <button type="button" id="add-Buttom-Toogle" class="addBtn">

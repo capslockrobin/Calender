@@ -5,6 +5,11 @@ let todos = []; //all todos from local storage
 let idEdditTodo; //save id when you click on eddit
 let date;
 let date2;
+
+function addChangeDayButtoms() {
+    document.getElementById("next-day").addEventListener('click', nextDayButtom);
+    document.getElementById("last-day").addEventListener('click', lastDayButtom);
+}
 /**
  * 
  * @param {Event} event 
@@ -341,4 +346,23 @@ function saveToLocalStorage(todos) {
 function initTodos() {
     const todoString = localStorage.getItem("Todo");
     todos = JSON.parse(todoString || "[]");
+}
+
+function nextDayButtom(){
+    dateNow.setDate(dateNow.getDate() + 1);
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById("tasklist-date").innerText = dateNow.toLocaleString("se-SE", options).toUpperCase();
+    
+    let foo = document.getElementsByClassName("active-day");
+    console.log(foo);
+
+    filterListBasedOnDate();
+}
+
+function lastDayButtom(){
+    dateNow.setDate(dateNow.getDate() - 1);
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById("tasklist-date").innerText = dateNow.toLocaleString("se-SE", options).toUpperCase();
+     activeDay();
+    filterListBasedOnDate();
 }

@@ -129,11 +129,15 @@ li>.delete:hover {
 -------------------------------------------------------------------*/
 
 .mobile-month-year-btns {
-    display: none;
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+}
+
+.hidden-for-bs{
+    display: none;
 }
 
 .month-Btn {
@@ -316,6 +320,7 @@ ul li.editMode label {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .section1 {
@@ -440,8 +445,7 @@ label {
     width: 100%;
 }
 
-.mobile-month-year-btns {
-    display: flex;
+.hidden-for-bs {
+    display: block;
 }
-
 }

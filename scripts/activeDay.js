@@ -15,7 +15,6 @@ function activeDay(e) {
         document.getElementById(id).classList.add("active-day");
         return;
     }
-
     if (e.target.attributes.id.textContent && id !== e.target.attributes.id.textContent) {
         if (!document.getElementById(id)) {
             id = e.target.attributes.id.textContent;
