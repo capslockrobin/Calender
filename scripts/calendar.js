@@ -69,6 +69,7 @@ function loadDays() {
     for (let i = 0; i < totalDays; i++) {
         const dayNumber = i + 1;
         let dayDiv = document.createElement("div");
+        let daySpan = document.createElement("span");
 
         const options = {
             year: "numeric",
@@ -83,7 +84,10 @@ function loadDays() {
         dayDiv.id = dateIdPartString;
         dayDiv.className = "day";
         dayDiv.classList.add("calendar-day");
-        dayDiv.innerHTML = dayNumber;
+        daySpan.className = "daySpan";
+        daySpan.innerHTML = dayNumber;
+
+        dayDiv.appendChild(daySpan);
 
         document.getElementById("calDays").appendChild(dayDiv);
     }
