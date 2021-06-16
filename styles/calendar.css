@@ -1,8 +1,13 @@
 .calendar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: white;
     padding: 20px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
     height: 100vh;
+    width: 100%;
 }
 
 .calendar .dropdown {
@@ -47,8 +52,7 @@
     color: white;
     text-align: center;
     font-size: 14pt;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 5px 10px 5px 10px;
     position: relative;
     width: 20%;
     cursor: pointer;
@@ -61,6 +65,10 @@
 
 .calendar .calendar-dates .days .day {
     /* display: flex; */
+        display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     float: left;
     width: 12%;
     margin: 1%;
@@ -75,6 +83,18 @@
 .calendar .calendar-dates .days .day.empty {
     background-color: white;
     border: none;
+}
+
+.calendar .month-year {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.calendar-dates {
+    width: 100%;
 }
 
 
@@ -94,7 +114,7 @@
 .calendar .calendar-dates .days .day.label {
     height: 40px;
     background-color: white;
-    color: black;
+    color: rgb(240, 145, 21);
     border: none;
     font-weight: bold;
 }
@@ -105,17 +125,6 @@
 
 .clear {
     clear: both;
-}
-
-@media only screen and (max-width: 960px) {
-    .calendar {
-        width: 100%;
-        margin: 0px;
-        margin: 0px;
-        box-sizing: border-box;
-        position: relative;
-        left: 0px;
-    }
 }
 
 .solid-divider {
@@ -136,6 +145,10 @@
     pointer-events: none;
 }
 
+.todo-count {
+    margin: 10px 0 0 0;
+}
+
 .day:hover {
     cursor: pointer;
     background-color: #1784c3;
@@ -148,4 +161,35 @@
 
 .empty.day:hover {
     cursor: default;
+}
+
+.daySpan {
+    margin-top: 8px;
+}
+
+
+
+/*------------------------------------------------------------------
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    !!!!!!!!!!!!!!!!!!!!!                 !!!!!!!!!!!!!!!!!!!!!!!
+    !!!!!!!!!!!!!!!!!!!!!  MEDIA QUERIES  !!!!!!!!!!!!!!!!!!!!!!!
+    !!!!!!!!!!!!!!!!!!!!!                 !!!!!!!!!!!!!!!!!!!!!!!
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+-------------------------------------------------------------------*/
+
+@media  (max-width: 960px) {
+    .calendar {
+        width: 100%;
+        margin: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+        position: relative;
+        left: 0px;
+    }
+}
+
+@media (max-width:750px) {
+.calendar {
+    display: none;
+}
 }
