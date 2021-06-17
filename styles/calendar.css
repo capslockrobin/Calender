@@ -75,7 +75,7 @@
     font-size: 13pt;
     text-align: center;
     /* height: 10vh; */
-    border: solid 1px #ddd;
+    border: solid 1px #b6b6b6;
     /* height: 5.7rem; */
     /* height: 13%; */
 }
@@ -121,7 +121,7 @@
 }
 
 .active-day {
-    background-color: #105279;
+    background-color: rgb(255, 102, 0);
     color: white;
     transition: 0.3s;
 }
@@ -158,12 +158,12 @@
 
 .day:hover {
     cursor: pointer;
-    background-color: #1784c3;
+    background-color: rgb(255, 156, 91);
     transition: 0.3s;
 }
 
 .active-day:hover {
-    background-color: #105279;
+    background-color: rgb(217, 87, 0);
 }
 
 .empty.day:hover {
