@@ -8,7 +8,7 @@ function activeDay(e) {
         id = e.target.attributes.id.textContent;
         let day = document.getElementById(id);
 
-        if (!day || !day.classList.contains("day")) {
+        if (!day || !day.classList.contains("calendar-day")) {
             return;
         }
 
@@ -51,7 +51,7 @@ function setActiveDayOnLoad() {
 }
 
 function setELToAllDays() {
-    const days = document.querySelectorAll(".day");
+    const days = document.querySelectorAll(".calendar-day");
     days.forEach((el) =>
         el.addEventListener("click", activeDay));
 }
