@@ -370,6 +370,8 @@ function nextDayButton() {
 
         document.getElementsByClassName("dropdown-item")[activeMonth + 1].click();
         document.getElementById(id).classList.add("active-day");
+        let monthList = document.getElementById("months");
+        monthList.style.display = "none";
         return;
     }
 
@@ -397,6 +399,8 @@ function previousDayButton() {
     if (oldActiveDay.includes("01")) {
         document.getElementsByClassName("dropdown-item")[activeMonth].click();
         document.getElementById(id).classList.add("active-day");
+        let monthList = document.getElementById("months");
+        monthList.style.display = "none";
         return;
     }
 
