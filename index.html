@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,8 +9,16 @@
     <link rel="stylesheet" href="styles/todo.css" />
     <link rel="stylesheet" href="styles/scrollbar.css" />
     <!-- Font-Awesome -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
 
     <script src="scripts/calendar.js"></script>
     <script src="scripts/activeDay.js"></script>
@@ -19,14 +26,29 @@
     <script src="scripts/todo.js"></script>
     <script src="scripts/holidayAPI.js"></script>
     <script defer src="./scripts/main.js"></script>
-    <script defer src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
-    <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
+    <script
+      defer
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js "
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo "
+      crossorigin="anonymous "
+    ></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js "
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 "
+      crossorigin="anonymous "
+    ></script>
+    <script
+      defer
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js "
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM "
+      crossorigin="anonymous "
+    ></script>
 
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- <header>
         <div style="background-color: green">
             <div class="row no-gutters justify-content-center">
@@ -35,52 +57,51 @@
         </div>
     </header> -->
 
-    <main class="main-wrapper" style="height: 100%;">
-        <div class="main">
-            <div class="main-side-width">
+    <main class="main-wrapper" style="height: 100%">
+      <div class="main">
+        <div class="main-side-width">
+          <!-- Start logo, date, clock -->
+          <div class="logo-clock-todo">
+            <div class="logo">
+              <!-- <img src="https://www.pngrepo.com/png/29731/180/sunny.png" style="width: 30%" alt="" /> -->
+              <h1 class="foo-logo">{ FOOOO }</h1>
+              <h5 class="date" id="todaysDate"></h5>
+            </div>
+            <div class="clock">
+              <div class="col-4"></div>
+              <div class="col-4"></div>
+              <div class="col-4">
+                <h5 class="clock" id="clock"></h5>
+              </div>
+            </div>
+          </div>
+          <!-- End logo, date, clock -->
 
-                <!-- Start logo, date, clock -->
-                <div class="logo-clock-todo">
-                    <div class="logo">
-                        <!-- <img src="https://www.pngrepo.com/png/29731/180/sunny.png" style="width: 30%" alt="" /> -->
-                        <h1 class="foo-logo">{ FOOOO }</h1>
-                        <h5 class="date" id="todaysDate"></h5>
-                    </div>
-                    <div class="clock">
-                        <div class="col-4"></div>
-                        <div class="col-4"></div>
-                        <div class="col-4">
-                            <h5 class="clock" id="clock"></h5>
-                        </div>
-                    </div>
+          <!-- Start todo-section -->
+          <div class="border-right sidebar" id="sidebar-wrapper">
+            <ul class="list-group list-group-flush overflow-auto">
+              <div class="mobile-month-year-btns">
+                <div class="month-Btn hidden-for-bs" id="last-day">
+                  <!-- <span>Last day</span> -->
+                  <i class="fa fa-chevron-left"></i>
                 </div>
-                <!-- End logo, date, clock -->
-
-                <!-- Start todo-section -->
-                <div class="border-right sidebar" id="sidebar-wrapper">
-                    <ul class="list-group list-group-flush overflow-auto">
-
-                        <div class="mobile-month-year-btns">
-                            <div class="month-Btn hidden-for-bs" id="last-day">
-                                <!-- <span>Last day</span> -->
-                                <i class="fa fa-chevron-left"></i>
-                            </div>
-                            <div id="tasklist-date" class="sidebar-heading"></div>
-                            <div class="year-Btn hidden-for-bs" id="next-day">
-                                <!-- <span>Next day</span> -->
-                                <i class="fa fa-chevron-right"></i>
-                            </div>
-                        </div>
-                        <!-- Start section1 -->
-                        <div class="section1">
-                            <button type="button" id="add-Buttom-Toogle" class="addBtn">
-                <i class="fa fa-plus" aria-hidden="true"></i>
+                <div id="tasklist-date" class="sidebar-heading"></div>
+                <div class="year-Btn hidden-for-bs" id="next-day">
+                  <!-- <span>Next day</span> -->
+                  <i class="fa fa-chevron-right"></i>
+                </div>
+              </div>
+              <!-- Start section1 -->
+              <div class="section1">
+                <button type="button" id="add-Buttom-Toogle" class="addBtn">
+                  <i class="fa fa-plus" aria-hidden="true"></i>
                 </button>
 
-                            <!-- Start display-form -->
-                            <form class="display-form" name="add" id="add-todo">
-                                <div class="labelInput">
-                                    <label class="label1"><h6 class="h6">Todo:</h6>
+                <!-- Start display-form -->
+                <form class="display-form" name="add" id="add-todo">
+                  <div class="labelInput">
+                    <label class="label1"
+                      ><h6 class="h6">Todo:</h6>
                       <input
                         type="text"
                         name="todo"
@@ -89,10 +110,11 @@
                         required
                       />
                     </label>
-                                </div>
-                                <div class="divStartEnd2">
-                                    <div class="divStartEnd3">
-                                        <label class="label1"><h6 class="h6">Startar:</h6>
+                  </div>
+                  <div class="divStartEnd2">
+                    <div class="divStartEnd3">
+                      <label class="label1"
+                        ><h6 class="h6">Startar:</h6>
                         <input
                           class="startTid"
                           type="time"
@@ -103,7 +125,8 @@
                           required
                         />
                       </label>
-                                        <label class="label1"><h6 class="h6">Slutar:</h6>
+                      <label class="label1"
+                        ><h6 class="h6">Slutar:</h6>
                         <input
                           class="slutTid"
                           type="time"
@@ -114,31 +137,41 @@
                           required
                         />
                       </label>
-                                    </div>
-                                    <input class="submitBtn" type="submit" name="submit" value="Godkänn" />
-                                </div>
-                            </form>
-                            <!-- End display-form -->
-                        </div>
-                        <!-- End section1 -->
+                    </div>
+                    <input
+                      class="submitBtn"
+                      type="submit"
+                      name="submit"
+                      value="Godkänn"
+                    />
+                  </div>
+                </form>
+                <!-- End display-form -->
+              </div>
+              <!-- End section1 -->
 
-                        <div class="section2">
-                            <ul id="todo-list-pop"></ul>
+              <div class="section2">
+                <ul id="todo-list-pop"></ul>
 
-                            <!-- injected from js -->
-                            <!-- Start edit-form -->
-                            <form class="display-eddit-form" name="eddit" id="eddit-todo-form">
-                                <div class="edit-form">
-                                    <label class="label"><h6 class="h6">Todo:</h6>
+                <!-- injected from js -->
+                <!-- Start edit-form -->
+                <form
+                  class="display-eddit-form"
+                  name="eddit"
+                  id="eddit-todo-form"
+                >
+                  <div class="edit-form">
+                    <label class="label"
+                      ><h6 class="h6">Todo:</h6>
                       <input
                         type="text"
                         id="edditTodo"
                         placeholder="ändra din todo..."
                       />
                     </label>
-                                    <div class="start-end">
-                        <label class="label1">
-                            <h6 class="h6">Startar:</h6>
+                    <div class="start-end">
+                      <label class="label1">
+                        <h6 class="h6">Startar:</h6>
                         <input
                           class="startTid"
                           type="time"
@@ -149,8 +182,8 @@
                           required
                         />
                       </label>
-                                <label class="label1">
-                                    <h6 class="h6">Slutar:</h6>
+                      <label class="label1">
+                        <h6 class="h6">Slutar:</h6>
                         <input
                           class="slutTid"
                           type="time"
@@ -161,55 +194,59 @@
                           required
                         />
                       </label>
-                                    </div>
-                                    <input class="submitBtn" type="submit" name="submit" value="Godkänn" />
-                                </div>
-                            </form>
-                            <!-- End edit-form -->
-                        </div>
-                    </ul>
-                </div>
-                <!-- End todo-section -->
-            </div>
-
-            <!-- Start calendar -->
-            <div class="calendar" id="calendar">
-                <div class="month-year">
-                    <div class="calendar-btn month-btn" id="toggle-months">
-                        <span id="currentMonth"></span>
-                        <i class="fa fa-angle-down"></i>
-                        <div id="months" class="months dropdown"></div>
                     </div>
-
-                    <div class="calendar-btn year-btn" id="toggle-years">
-                        <span id="currentYear"></span>
-                        <i class="fa fa-angle-down"></i>
-                        <div id="years" class="years dropdown"></div>
-                    </div>
-                </div>
-                <div class="clear"></div>
-
-                <div class="calendar-dates">
-                    <div class="days weekdays">
-                        <div class="day label">SÖN</div>
-                        <div class="day label">MÅN</div>
-                        <div class="day label">TIS</div>
-                        <div class="day label">ONS</div>
-                        <div class="day label">TORS</div>
-                        <div class="day label">FRE</div>
-                        <div class="day label">LÖR</div>
-
-                        <div class="clear"></div>
-                    </div>
-
-                    <hr class="solid-divider" />
-
-                    <div id="calDays" class="days full-height"></div>
-                </div>
-            </div>
-            <!-- End calendar -->
+                    <input
+                      class="submitBtn"
+                      type="submit"
+                      name="submit"
+                      value="Godkänn"
+                    />
+                  </div>
+                </form>
+                <!-- End edit-form -->
+              </div>
+            </ul>
+          </div>
+          <!-- End todo-section -->
         </div>
-    </main>
-</body>
 
+        <!-- Start calendar -->
+        <div class="calendar" id="calendar">
+          <div class="month-year">
+            <div class="calendar-btn month-btn" id="toggle-months">
+              <span id="currentMonth"></span>
+              <i class="fa fa-angle-down"></i>
+              <div id="months" class="months dropdown"></div>
+            </div>
+
+            <div class="calendar-btn year-btn" id="toggle-years">
+              <span id="currentYear"></span>
+              <i class="fa fa-angle-down"></i>
+              <div id="years" class="years dropdown"></div>
+            </div>
+          </div>
+          <div class="clear"></div>
+
+          <div class="calendar-dates">
+            <div class="days weekdays">
+              <div class="day label">SÖN</div>
+              <div class="day label">MÅN</div>
+              <div class="day label">TIS</div>
+              <div class="day label">ONS</div>
+              <div class="day label">TORS</div>
+              <div class="day label">FRE</div>
+              <div class="day label">LÖR</div>
+
+              <div class="clear"></div>
+            </div>
+
+            <hr class="solid-divider" />
+
+            <div id="calDays" class="days full-height"></div>
+          </div>
+        </div>
+        <!-- End calendar -->
+      </div>
+    </main>
+  </body>
 </html>
