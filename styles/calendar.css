@@ -121,7 +121,7 @@
 }
 
 .active-day {
-    background-color: rgb(255, 102, 0);
+    background-color: rgb(255, 129, 45);
     color: white;
     transition: 0.3s;
 }
@@ -158,12 +158,12 @@
 
 .day:hover {
     cursor: pointer;
-    background-color: rgb(255, 156, 91);
+    background-color: rgb(255, 154, 87);
     transition: 0.3s;
 }
 
 .active-day:hover {
-    background-color: rgb(217, 87, 0);
+    background-color: rgb(255, 153, 86);
 }
 
 .empty.day:hover {
