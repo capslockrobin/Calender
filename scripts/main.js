@@ -15,7 +15,7 @@ function main() {
 
     //clockdate js
     setTodaysDate();
-    clockTime();
+    startClock();
 
     //todo js
     loadFirstDate();

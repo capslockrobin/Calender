@@ -219,14 +219,6 @@ function deleteTodo(event) {
 }
 
 function todoCountForDate() {
-    //if todos is 0 just remove element
-    if(!todos.length){
-        const elements = document.getElementsByClassName("todo-count");
-        while (elements.length > 0) elements[0].remove();
-
-        return;
-    }
-
     const options2 = {
         year: "numeric",
         month: "numeric",
@@ -234,25 +226,25 @@ function todoCountForDate() {
     };
     //removing old elements to recount
     todos.forEach(x => {
-            dates.forEach(y => {
-                let todoDate = new Date(x.dateOf);
-                if (todoDate.toDateString() == y.toDateString()) {
-                    let dateId = new Date(y).toLocaleString("se-SE", options2);
-                    let thisDay = document.getElementById(dateId);
-                    if (!thisDay) {
-                        return;
-                    }
-
-                    const elements = document.getElementsByClassName("todo-count");
-                    while (elements.length > 0) elements[0].remove();
-
-                    thisDay.classList.remove("has-todos");
+        dates.forEach(y => {
+            let todoDate = new Date(x.dateOf);
+            if (todoDate.toDateString() == y.toDateString()) {
+                let dateId = new Date(y).toLocaleString("se-SE", options2);
+                let thisDay = document.getElementById(dateId);
+                if (!thisDay) {
+                    return;
                 }
-            })
-        })
 
-        
-        //adding 
+                const elements = document.getElementsByClassName("todo-count");
+                while (elements.length > 0) elements[0].remove();
+
+                thisDay.classList.remove("has-todos");
+            }
+        })
+    })
+
+
+    //adding 
     todos.forEach(x => {
         dates.forEach(y => {
             let todoDate = new Date(x.dateOf);

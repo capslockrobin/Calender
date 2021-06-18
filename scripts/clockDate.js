@@ -10,5 +10,9 @@ function setTodaysDate() {
 function clockTime() {
     const time = new Date().toLocaleTimeString();
     document.getElementById('clock').innerText = time;
+}
+
+function startClock() {
+    clockTime();
     setInterval(clockTime, 1000);
 }
