@@ -219,6 +219,14 @@ function deleteTodo(event) {
 }
 
 function todoCountForDate() {
+    //if todos is 0 just remove element
+    if(!todos.length){
+        const elements = document.getElementsByClassName("todo-count");
+        while (elements.length > 0) elements[0].remove();
+
+        return;
+    }
+
     const options2 = {
         year: "numeric",
         month: "numeric",
@@ -242,6 +250,8 @@ function todoCountForDate() {
                 }
             })
         })
+
+        
         //adding 
     todos.forEach(x => {
         dates.forEach(y => {
