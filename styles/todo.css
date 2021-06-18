@@ -5,8 +5,8 @@
 ul {
     margin: 0;
     padding: 0;
-    background-color: rgb(90, 90, 90);
-    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(90, 90, 90); 
+    border-top: 1px solid rgb(0, 0, 0);
 }
 
 li * {
@@ -227,6 +227,7 @@ ul li.editMode label {
     font-weight: 500;
     padding: 0.3em 1.2em;
     border-radius: 50px;
+    margin-right: 5px;
     transition: 0.3s;
 }
 
@@ -250,7 +251,7 @@ ul li.editMode label {
     font-weight: 500;
     padding: 0.3em 1.2em;
     border-radius: 50px;
-    margin-left: 10px;
+    margin-left: 5px;
     transition: 0.3s;
 }
 
@@ -386,10 +387,6 @@ ul li.editMode label {
     align-items: center;
 }
 
-.slutTid {
-    padding-left: 10px;
-}
-
 .divChangeDeleteBtn {
     display: flex;
     flex-direction: row;
@@ -433,8 +430,6 @@ label {
     color: #b6b6b6;
     margin-right: 5px;
 }
-
-
 
 .startTid {
     background-color: rgb(102, 102, 102);
