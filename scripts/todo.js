@@ -7,8 +7,8 @@ let date;
 let date2;
 
 function addChangeDayButtoms() {
-    document.getElementById("next-day").addEventListener('click', nextDayButtom);
-    document.getElementById("last-day").addEventListener('click', lastDayButtom);
+    document.getElementById("next-day").addEventListener('click', nextDayButton);
+    document.getElementById("last-day").addEventListener('click', previousDayButton);
 }
 /**
  * 
@@ -348,18 +348,32 @@ function initTodos() {
     todos = JSON.parse(todoString || "[]");
 }
 
-function nextDayButtom() {
+function nextDayButton() {
     dateNow.setDate(dateNow.getDate() + 1);
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     document.getElementById("tasklist-date").innerText = dateNow.toLocaleString("se-SE", options).toUpperCase();
 
     let activeHtml = document.getElementsByClassName("active-day");
-    let oldActiveDay
+    let oldActiveDay;
     for (let i = 0, n = activeHtml.length; i < n; ++i) {
         oldActiveDay = activeHtml[i].id;
-
     }
-    console.log(oldActiveDay)
+
+    let activeMonth = new Date(oldActiveDay).getMonth();
+    let activeYear = new Date(oldActiveDay).getFullYear();
+    let dayCount = new Date(activeYear, (activeMonth + 1), 0).getDate();
+
+    const options2 = { year: "numeric", month: "numeric", day: "numeric" };
+    let id = dateNow.toLocaleString("se-SE", options2);
+
+    if (oldActiveDay.includes(dayCount)) {
+
+        document.getElementsByClassName("dropdown-item")[activeMonth + 1].click();
+        document.getElementById(id).classList.add("active-day");
+        let monthList = document.getElementById("months");
+        monthList.style.display = "none";
+        return;
+    }
 
     document.getElementById(oldActiveDay).classList.remove("active-day");
     document.getElementById(oldActiveDay).nextElementSibling.classList.add("active-day");
@@ -367,21 +381,31 @@ function nextDayButtom() {
     filterListBasedOnDate();
 }
 
-function lastDayButtom() {
+function previousDayButton() {
     dateNow.setDate(dateNow.getDate() - 1);
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     document.getElementById("tasklist-date").innerText = dateNow.toLocaleString("se-SE", options).toUpperCase();
 
     let activeHtml = document.getElementsByClassName("active-day");
-    let oldActiveDay
+    let oldActiveDay;
     for (let i = 0, n = activeHtml.length; i < n; ++i) {
         oldActiveDay = activeHtml[i].id;
-
     }
-    console.log(oldActiveDay)
 
-    document.getElementById(oldActiveDay).classList.remove("active-day");
+    let activeMonth = dateNow.getMonth();
+    const options2 = { year: "numeric", month: "numeric", day: "numeric" };
+    let id = dateNow.toLocaleString("se-SE", options2);
+
+    if (oldActiveDay.includes("01")) {
+        document.getElementsByClassName("dropdown-item")[activeMonth].click();
+        document.getElementById(id).classList.add("active-day");
+        let monthList = document.getElementById("months");
+        monthList.style.display = "none";
+        return;
+    }
+
     document.getElementById(oldActiveDay).previousElementSibling.classList.add("active-day");
+    document.getElementById(oldActiveDay).classList.remove("active-day");
 
     filterListBasedOnDate();
 }

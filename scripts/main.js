@@ -1,13 +1,13 @@
 window.addEventListener("load", main);
 
 function main() {
-    //calandar js
+    //calendar js
     setCurrYearMonth();
     loadMonths();
     loadYears();
     loadDays();
     addToggleEventListener();
-    
+
 
     //activeDay.js
     setELToAllDays();
