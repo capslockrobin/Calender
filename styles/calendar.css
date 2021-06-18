@@ -54,7 +54,8 @@
     font-size: 14pt;
     padding: 5px 10px 5px 10px;
     position: relative;
-    width: 20%;
+    min-width: 20%;
+    max-width: 35%;
     cursor: pointer;
     transition: .5s background-color;
 }
@@ -134,7 +135,7 @@
 .holiday {
     order: 1;
     margin: 0;
-    flex: 1;
+    /* flex: 1; */
 }
 
 .day span {
@@ -152,8 +153,14 @@
 
 .todo-count {
     align-self: flex-end;
+    position: absolute;
+    bottom: 0;
     order: 2;
     margin: 10px 5px 0 0;
+}
+
+.calendar-day {
+    position: relative;
 }
 
 .day:hover {

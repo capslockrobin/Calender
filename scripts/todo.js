@@ -95,13 +95,6 @@ function dateNowOnClick() {
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         document.getElementById("tasklist-date").innerText = date2.toLocaleString("se-SE", options).toUpperCase();
 
-
-        //Antalet todos för valda datumet satt i tasklist-date header. Använd något annanstans?
-        if (e.target.childElementCount > 0) {
-            document.getElementById("tasklist-date").innerText =
-                date2.toLocaleString("se-SE", options).toUpperCase() + " " + e.target.children[0].innerText;
-        }
-
         if (!dateNow) {
             filterListBasedOnDate();
             dateNow = date2;
