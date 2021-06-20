@@ -24,15 +24,15 @@ function processFormData(event) {
             todo: event.target.todo.value,
             start: event.target.start.value,
             end: event.target.end.value,
-            dateOf: dateNow,
+            dateOf: new Date(dateNow) ,
         }
 
         todos.push(newT);
         console.log(todos);
 
+        saveToLocalStorage(todos);
         filterListBasedOnDate();
         toggleForm();
-        saveToLocalStorage(todos);
         todoCountForDate();
     }
 }
@@ -219,6 +219,10 @@ function deleteTodo(event) {
 }
 
 function todoCountForDate() {
+    const elements = document.getElementsByClassName("todo-count");
+    if(elements.length == 1){
+        while (elements.length > 0) elements[0].remove();
+    }
     const options2 = {
         year: "numeric",
         month: "numeric",
@@ -361,6 +365,8 @@ function nextDayButton() {
     const options2 = { year: "numeric", month: "numeric", day: "numeric" };
     let id = dateNow.toLocaleString("se-SE", options2);
 
+    filterListBasedOnDate();
+
     if (oldActiveDay.includes(dayCount)) {
 
         document.getElementsByClassName("dropdown-item")[activeMonth + 1].click();
@@ -372,8 +378,6 @@ function nextDayButton() {
 
     document.getElementById(oldActiveDay).classList.remove("active-day");
     document.getElementById(oldActiveDay).nextElementSibling.classList.add("active-day");
-
-    filterListBasedOnDate();
 }
 
 function previousDayButton() {
@@ -391,6 +395,8 @@ function previousDayButton() {
     const options2 = { year: "numeric", month: "numeric", day: "numeric" };
     let id = dateNow.toLocaleString("se-SE", options2);
 
+    filterListBasedOnDate();
+
     if (oldActiveDay.includes("01")) {
         document.getElementsByClassName("dropdown-item")[activeMonth].click();
         document.getElementById(id).classList.add("active-day");
@@ -401,6 +407,4 @@ function previousDayButton() {
 
     document.getElementById(oldActiveDay).previousElementSibling.classList.add("active-day");
     document.getElementById(oldActiveDay).classList.remove("active-day");
-
-    filterListBasedOnDate();
 }
