@@ -3,7 +3,6 @@ function addToggleEventListener() {
     document.getElementById("toggle-years").addEventListener("click", toggleYears);
 }
 
-
 const months = ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December"];
 const startYear = 2015;
 const endYear = 2025;
@@ -60,17 +59,14 @@ function loadDays() {
     const totalDays = daysInChosenMonth(month, year);
     const dayofweek = mockDate.getDay(); // find where to start calendar day of week
 
-    console.log(dayofweek);
-    if(dayofweek < 6)
-    {
+    if (dayofweek < 6) {
         for (let i = 0; i <= dayofweek; i++) {
-        let dayDiv = document.createElement("div");
-        dayDiv.classList.add("empty");
-        dayDiv.classList.add("day");
-        document.getElementById("calDays").appendChild(dayDiv);
+            let dayDiv = document.createElement("div");
+            dayDiv.classList.add("empty");
+            dayDiv.classList.add("day");
+            document.getElementById("calDays").appendChild(dayDiv);
         }
     }
- 
 
     for (let i = 0; i < totalDays; i++) {
         const dayNumber = i + 1;
@@ -89,9 +85,9 @@ function loadDays() {
         dates.push(dateId);
         dayDiv.id = dateIdPartString;
         dayDiv.className = "day";
-        if(dayofweek == 6) {
+        if (dayofweek == 6) {
             dayDiv.setAttribute("style", "height: 16%;");
-        } else if(dayofweek >3) {
+        } else if (dayofweek > 3) {
             dayDiv.setAttribute("style", "height: 13%;");
         } else {
             dayDiv.setAttribute("style", "height: 16%;");
@@ -105,7 +101,7 @@ function loadDays() {
         document.getElementById("calDays").appendChild(dayDiv);
     }
 
-     for (let i = 0; i <= dayofweek - 1; i++) {
+    for (let i = 0; i <= dayofweek - 1; i++) {
         let dayDiv = document.createElement("div");
         dayDiv.classList.add("empty");
         dayDiv.classList.add("day");

@@ -24,11 +24,10 @@ function processFormData(event) {
             todo: event.target.todo.value,
             start: event.target.start.value,
             end: event.target.end.value,
-            dateOf: new Date(dateNow) ,
+            dateOf: new Date(dateNow),
         }
 
         todos.push(newT);
-        console.log(todos);
 
         saveToLocalStorage(todos);
         filterListBasedOnDate();
@@ -49,7 +48,6 @@ function addButtomToggleEventListener() {
     const toggleButtom = document.getElementById("add-Buttom-Toogle");
     toggleButtom.addEventListener("click", toggleForm);
 }
-
 
 function toggleForm() {
     const frm_element = document.getElementById('add-todo');
@@ -118,7 +116,6 @@ function setTodoListHeaderDate() {
 }
 
 function filterListBasedOnDate() {
-
     dayTodos = todos.filter(x => {
         {
             let todoDate = new Date(x.dateOf);
@@ -181,7 +178,6 @@ function filterListBasedOnDate() {
             deleteButton.innerText = "Ta bort";
             deleteButton.className = "delete";
 
-
             divTodo.className = "divTodo";
             label.innerText = "todo: " + dayTodos[i].todo;
             label.className = "todo";
@@ -220,7 +216,7 @@ function deleteTodo(event) {
 
 function todoCountForDate() {
     const elements = document.getElementsByClassName("todo-count");
-    if(elements.length == 1){
+    if (elements.length == 1) {
         while (elements.length > 0) elements[0].remove();
     }
     const options2 = {
@@ -275,16 +271,13 @@ function todoCountForDate() {
 }
 
 function edditTodo(event) {
-    console.log("najs");
     toggleEdditForm();
     idEdditTodo = event.target.attributes.id.textContent;
 }
 
 function toggleEdditForm() {
     let frm_element = document.getElementById('eddit-todo-form');
-
     let vis = frm_element.style;
-
     if (vis.display == '' || vis.display == 'none') {
         vis.display = 'block';
     } else {
@@ -298,7 +291,6 @@ function toggleEdditForm() {
  */
 function processEdditFormData(event) {
     event.preventDefault();
-    console.log(event.target);
     if (validateEditForm(event)) {
         const newTodo = event.target.edditTodo.value;
         const newStart = event.target.edditStart.value;

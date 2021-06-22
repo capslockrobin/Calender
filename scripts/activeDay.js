@@ -29,6 +29,11 @@ function activeDay(e) {
     }
     id = e.target.attributes.id.textContent;
     let day = document.getElementById(id);
+
+    //Togglar active day om man klickar på samma element igen
+    //Onödig funktionalitet, men lämnar kvar den för jag 
+    //har ändå svettats med den. Se avgränsningar i README.md
+    //ang. "det ska gå avmarkera vald dag".
     if (day.classList.contains("active-day")) {
         day.classList.remove("active-day");
         dateNow = null;

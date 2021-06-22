@@ -1,7 +1,7 @@
 window.addEventListener("load", main);
 
 function main() {
-    //calendar js
+    //calendar.js
     setCurrYearMonth();
     loadMonths();
     loadYears();
@@ -13,7 +13,7 @@ function main() {
     setELToAllDays();
     setActiveDayOnLoad();
 
-    //clockdate js
+    //clockdate.js
     setTodaysDate();
     startClock();
 
@@ -29,7 +29,7 @@ function main() {
     addDateNowEventListener();
     addChangeDayButtoms();
 
-    //holiday js
+    //holidayAPI.js
     observeMonthAndYear();
     setMonthAndYear();
 }
