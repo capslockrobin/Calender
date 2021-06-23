@@ -4,7 +4,12 @@ let id;
 let id2;
 
 function activeDay(e) {
-    if (id === "" || id === null) {
+    if(mobileDate){
+        const options = { year: "numeric", month: "numeric", day: "numeric" };
+        let id = mobileDate.toLocaleString("se-SE", options);
+        document.getElementById(id).classList.remove("active-day");
+    }
+    if (!id) {
         id = e.target.attributes.id.textContent;
         let day = document.getElementById(id);
 
@@ -42,6 +47,8 @@ function activeDay(e) {
         day.classList.add("active-day");
         return;
     }
+
+  
 }
 
 function setActiveDayOnLoad() {

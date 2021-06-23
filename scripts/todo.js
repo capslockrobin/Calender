@@ -5,6 +5,7 @@ let todos = []; //all todos from local storage
 let idEdditTodo; //save id when you click on eddit
 let date;
 let date2;
+let mobileDate;
 
 function addChangeDayButtoms() {
     document.getElementById("next-day").addEventListener('click', nextDayButton);
@@ -370,6 +371,9 @@ function nextDayButton() {
 
     document.getElementById(oldActiveDay).classList.remove("active-day");
     document.getElementById(oldActiveDay).nextElementSibling.classList.add("active-day");
+    mobileDate = new Date(oldActiveDay);
+    mobileDate.setDate(mobileDate.getDate() + 1)
+
 }
 
 function previousDayButton() {
@@ -396,7 +400,9 @@ function previousDayButton() {
         monthList.style.display = "none";
         return;
     }
-
+    
     document.getElementById(oldActiveDay).previousElementSibling.classList.add("active-day");
     document.getElementById(oldActiveDay).classList.remove("active-day");
+    mobileDate = new Date(oldActiveDay);
+    mobileDate.setDate(mobileDate.getDate() - 1);
 }
