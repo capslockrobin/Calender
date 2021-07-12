@@ -88,7 +88,7 @@ function addDateNowEventListener() {
 function dateNowOnClick() {
     document.getElementById("calDays").onclick = function() {
         let e = window.event;
-        date = new Date(e.toElement.id);
+        date = new Date(e.target.id);
         date2 = (date == "Invalid Date" || date == "undefined") ? date2 : date;
 
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -272,12 +272,24 @@ function todoCountForDate() {
 }
 
 function edditTodo(event) {
-    toggleEdditForm();
     idEdditTodo = event.target.attributes.id.textContent;
+
+    toggleEdditForm();
 }
 
 function toggleEdditForm() {
     let frm_element = document.getElementById('eddit-todo-form');
+
+    todos.forEach( element => {
+       
+       if(element.Id == idEdditTodo)
+       {
+            document.getElementById("edditTodo").value = element.todo;
+            document.getElementById("edditStart").value = element.start;
+            document.getElementById("edditEnd").value = element.end; 
+       }  
+    })
+
     let vis = frm_element.style;
     if (vis.display == '' || vis.display == 'none') {
         vis.display = 'block';
