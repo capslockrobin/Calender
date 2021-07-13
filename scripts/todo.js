@@ -92,7 +92,7 @@ function dateNowOnClick() {
         date2 = (date == "Invalid Date" || date == "undefined") ? date2 : date;
 
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById("tasklist-date").innerText = date2.toLocaleString("se-SE", options).toUpperCase();
+        document.getElementById("tasklist-date").innerText = date2.toLocaleString("sv-SE", options).toUpperCase();
 
         if (!dateNow) {
             filterListBasedOnDate();
@@ -113,7 +113,7 @@ function loadFirstDate() {
 
 function setTodoListHeaderDate() {
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById("tasklist-date").innerText = date.toLocaleString("se-SE", options).toUpperCase();
+    document.getElementById("tasklist-date").innerText = date.toLocaleString("sv-SE", options).toUpperCase();
 }
 
 function filterListBasedOnDate() {
@@ -124,7 +124,7 @@ function filterListBasedOnDate() {
                 x = null;
                 return x;
             }
-            if (todoDate.toDateString() == dateNow.toDateString()) {
+            if (todoDate.toDateString("sv-SE") == dateNow.toDateString("sv-SE")) {
                 return x;
             }
         }
@@ -230,7 +230,7 @@ function todoCountForDate() {
         dates.forEach(y => {
             let todoDate = new Date(x.dateOf);
             if (todoDate.toDateString() == y.toDateString()) {
-                let dateId = new Date(y).toLocaleString("se-SE", options2);
+                let dateId = new Date(y).toLocaleString("sv-SE", options2);
                 let thisDay = document.getElementById(dateId);
                 if (!thisDay) {
                     return;
@@ -252,7 +252,7 @@ function todoCountForDate() {
             if (todoDate.toDateString() == y.toDateString()) {
                 let result = todos.filter((x) => new Date(x.dateOf).toDateString() == y.toDateString());
 
-                let dateId = new Date(y).toLocaleString("se-SE", options2);
+                let dateId = new Date(y).toLocaleString("sv-SE", options2);
                 let thisDay = document.getElementById(dateId);
                 if (!thisDay) {
                     return;
@@ -280,14 +280,13 @@ function edditTodo(event) {
 function toggleEdditForm() {
     let frm_element = document.getElementById('eddit-todo-form');
 
-    todos.forEach( element => {
-       
-       if(element.Id == idEdditTodo)
-       {
+    todos.forEach(element => {
+
+        if (element.Id == idEdditTodo) {
             document.getElementById("edditTodo").value = element.todo;
             document.getElementById("edditStart").value = element.start;
-            document.getElementById("edditEnd").value = element.end; 
-       }  
+            document.getElementById("edditEnd").value = element.end;
+        }
     })
 
     let vis = frm_element.style;
@@ -355,7 +354,7 @@ function initTodos() {
 function nextDayButton() {
     dateNow.setDate(dateNow.getDate() + 1);
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById("tasklist-date").innerText = dateNow.toLocaleString("se-SE", options).toUpperCase();
+    document.getElementById("tasklist-date").innerText = dateNow.toLocaleString("sv-SE", options).toUpperCase();
 
     let activeHtml = document.getElementsByClassName("active-day");
     let oldActiveDay;
@@ -368,7 +367,7 @@ function nextDayButton() {
     let dayCount = new Date(activeYear, (activeMonth + 1), 0).getDate();
 
     const options2 = { year: "numeric", month: "numeric", day: "numeric" };
-    let id = dateNow.toLocaleString("se-SE", options2);
+    let id = dateNow.toLocaleString("sv-SE", options2);
 
     filterListBasedOnDate();
 
@@ -391,7 +390,7 @@ function nextDayButton() {
 function previousDayButton() {
     dateNow.setDate(dateNow.getDate() - 1);
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById("tasklist-date").innerText = dateNow.toLocaleString("se-SE", options).toUpperCase();
+    document.getElementById("tasklist-date").innerText = dateNow.toLocaleString("sv-SE", options).toUpperCase();
 
     let activeHtml = document.getElementsByClassName("active-day");
     let oldActiveDay;
@@ -401,7 +400,7 @@ function previousDayButton() {
 
     let activeMonth = dateNow.getMonth();
     const options2 = { year: "numeric", month: "numeric", day: "numeric" };
-    let id = dateNow.toLocaleString("se-SE", options2);
+    let id = dateNow.toLocaleString("sv-SE", options2);
 
     filterListBasedOnDate();
 
@@ -412,7 +411,7 @@ function previousDayButton() {
         monthList.style.display = "none";
         return;
     }
-    
+
     document.getElementById(oldActiveDay).previousElementSibling.classList.add("active-day");
     document.getElementById(oldActiveDay).classList.remove("active-day");
     mobileDate = new Date(oldActiveDay);

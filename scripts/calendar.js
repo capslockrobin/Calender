@@ -78,7 +78,7 @@ function loadDays() {
             month: "numeric",
             day: "numeric",
         };
-        const dateIdPart = new Date(year + "-" + (month + 1) + "-" + (i + 1)).toLocaleString("se-SE", options);
+        const dateIdPart = new Date(year + "-" + (month + 1) + "-" + (i + 1)).toLocaleString("sv-SE", options);
         const dateIdPartString = String(dateIdPart);
         const dateId = new Date(dateIdPart);
 

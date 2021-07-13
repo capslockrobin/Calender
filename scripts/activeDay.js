@@ -7,7 +7,7 @@ function activeDay(e) {
     if (mobileDate) {
         console.log(mobileDate);
         const options = { year: "numeric", month: "numeric", day: "numeric" };
-        let id = mobileDate.toLocaleString("se-SE", options);
+        let id = mobileDate.toLocaleString("sv-SE", options);
 
         let oldMobileDate = document.getElementById(id);
         if (oldMobileDate) {
@@ -64,7 +64,7 @@ function setActiveDayOnLoad() {
         month: "numeric",
         day: "numeric",
     };
-    const todaysDate = new Date().toLocaleString("se-SE", options);
+    const todaysDate = new Date().toLocaleString("sv-SE", options);
     document.getElementById(todaysDate).classList.add("active-day");
     id = todaysDate;
 }
